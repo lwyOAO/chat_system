@@ -1,0 +1,7 @@
+server:
+  host: "127.0.0.1"
+  port: 9000
+
+log:
+  level: "debug"
+  file: "char_server.log"

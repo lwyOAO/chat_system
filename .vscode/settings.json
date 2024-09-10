@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "chat_client_socket.h": "c",
+        "log4c.h": "c",
+        "category.h": "c",
+        "chat_config.h": "c",
+        "yaml.h": "c",
+        "chat_global.h": "c"
+    },
+    "makefile.configureOnOpen": false
+}

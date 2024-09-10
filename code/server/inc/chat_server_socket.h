@@ -1,0 +1,1 @@
+int chat_server_start(char* ip, int port);

@@ -1,0 +1,7 @@
+client:
+  host: "127.0.0.1"
+  port: 9000 #指示客户端端口的范围，可以同时启动多个客户端
+
+log:
+  level: "debug"
+  file: "char_client.log"
