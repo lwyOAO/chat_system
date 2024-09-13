@@ -11,9 +11,16 @@
 #define MAX_CLIENTS 10
 #define BUFF_SIZE 1024
 
+typedef enum {
+    UDP_online = 0,
+    UDP_refresh,
+    TCP,
+} Packet_type;
+
 typedef struct
 {
     int sockfd;
+    Packet_type type; // 0为UDP， 1 为TCP
     char message[BUFF_SIZE];
     int message_len;
 } task_t;

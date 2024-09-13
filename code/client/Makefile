@@ -1,4 +1,4 @@
-GFLAGS = -Wall -g -Iinc -I../inc -I../lib/config_parser/inc
+GFLAGS = -Wall -g -Iinc -I../inc -I../lib/config_parser/inc -I../lib/log/inc
 
 # 源文件列表
 SRC = $(wildcard $(SRC_DIR)/*c)
@@ -6,9 +6,9 @@ SRC = $(wildcard $(SRC_DIR)/*c)
 # 目标文件列表
 OBJ = $(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.o, $(SRC))
 
-LIB_DIR = -L../lib/config_parser/build/
+LIB_DIR = -L../lib/config_parser/build/ -L../lib/log/build/
 
-LIBS = -lconfig
+LIBS = -lconfig -llog
 
 TARGET = $(BIN_DIR)/client
 

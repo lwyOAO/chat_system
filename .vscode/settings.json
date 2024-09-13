@@ -5,7 +5,14 @@
         "category.h": "c",
         "chat_config.h": "c",
         "yaml.h": "c",
-        "chat_global.h": "c"
+        "chat_global.h": "c",
+        "chat_server_mysql.h": "c",
+        "chat_server_cmd.h": "c",
+        "chat_server_utils.h": "c",
+        "chat_server_socket.h": "c",
+        "chat_client_cmd.h": "c",
+        "chat_server_thread_pool.h": "c",
+        "logger.h": "c"
     },
     "makefile.configureOnOpen": false
 }

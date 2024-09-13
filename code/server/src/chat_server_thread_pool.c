@@ -2,10 +2,133 @@
 #include <stdlib.h>
 #include <string.h>
 #include "chat_server_thread_pool.h"
+#include "chat_server_cmd.h"
+#include "chat_global.h"
+#include "chat_server_utils.h"
+#include "chat_config.h"
+#include "logger.h"
 
 thread_pool_t pool;
 extern int client_count;
 extern client_t clients[MAX_CLIENTS];
+extern CMD_MAP_T g_server_cmdTable[];
+extern char online_user_list[16][10];
+extern Online_user* online_user_list_head;
+#define MAX_PACKET_SIZE 1024
+
+// 标记客户端是否在线
+void handle_UDP_online(task_t * task)
+{
+    for(int i = 0; i < 16; i++)
+    {
+        if(online_user_list[i][0] == '\0')
+        {
+            strcpy(online_user_list[i], task->message);
+        }
+    }
+}
+
+// 刷新在线用户列表
+void handle_UDP_refresh(task_t * task)
+{
+    Online_user* node = online_user_list_head;
+    int if_find = 0;
+    while (node != NULL)
+    {
+        if_find = 0;
+        for(int i = 0; i < 16; i++)
+        {
+            if(strcmp(online_user_list[i], node->user_id) == 0)
+            {
+                if_find = 1;
+                node->first_scan_online = 1;
+                break;
+            }
+        }
+
+        // 没有找到，代表客户端可能已经离线
+        if(if_find == 0)
+        {
+            if(node->first_scan_online == 0)
+            {
+                // 第二次扫描依旧离线，可认为确实离线
+                node = del_online_user_by_id(node->user_id);
+
+            } else 
+            {
+                node->first_scan_online = 0;
+            }
+        }
+
+        node = node->next;
+    }
+
+    for(int i = 0; i < 16; i++)
+    {
+        online_user_list[i][0] = '\0';
+    }
+    LOG_DEBUG("refresh online_user_list");
+}
+
+void handle_TCP(task_t *task)
+{
+    Custom_header header;
+    char *lines[10];
+    int line_count = 0;
+    char buffer[MAX_PACKET_SIZE];
+    int target_sockfd;
+
+    // Process the client's message
+    LOG_DEBUG("Thread handling message from client %d: %s\n", task->sockfd, task->message);
+
+    header.sockfd = task->sockfd;
+
+    // 解析报文
+    parse_cmd(task->message, &header, lines, &line_count);
+
+    if (strcmp(header.online_id, "0") == 0 && header.type != SIGNIN) // 未登录
+    {
+        // 不转发信息，告知用户未登录
+        header.type = NOT_SIGNIN;
+    }
+    else if(header.type != SIGNIN && header.type != SIGNUP && !online_id_exist(header.online_id))
+    {
+        header.type = NOT_SIGNIN;
+    }
+
+    for (int i = 0; g_server_cmdTable[i].cmd_code != -1; i++)
+    {
+        if (g_server_cmdTable[i].cmd_code == header.type)
+        {
+            g_server_cmdTable[i].func(line_count, &header, buffer, lines);
+        }
+    }
+
+    // 发送id和目标id都一样，代表是注册或者登录处理
+    if (strcmp(header.client_id, header.target_id) == 0)
+    {
+        printf("==================\n");
+        printf("prepare send: %s\n", buffer);
+        send(task->sockfd, buffer, strlen(buffer), 0);
+    }
+    else
+    {
+        target_sockfd = find_sockfd_by_id(header.target_id);
+
+        printf("==================\n");
+        printf("forward: %s\n", buffer);
+        if (target_sockfd > 0)
+        {
+            send(target_sockfd, buffer, strlen(buffer), 0);
+        }
+        else
+        {
+            printf("target not found!\n");
+        }
+    }
+
+    free(task);
+}
 
 void *worker_thread(void *arg)
 {
@@ -28,22 +151,18 @@ void *worker_thread(void *arg)
         // Unlock the mutex after retrieving the task
         pthread_mutex_unlock(&pool.mutex);
 
-        // 对头部反序列化
-
-        // Process the client's message
-        printf("Thread handling message from client %d: %s\n", task->sockfd, task->message);
-
-        // Reply to the client (optional)
-        for(int i = 0; i < client_count; i++)
+        if(task->type == TCP)
         {
-            if(clients[i].sockfd != task->sockfd)
-            {
-                send(clients[i].sockfd, task->message, strlen(task->message), 0);
-            }
+            handle_TCP(task);
         }
-
-        // Free the task memory
-        free(task);
+        else if(task->type == UDP_online)
+        {
+            handle_UDP_online(task);
+        }
+        else if(task->type == UDP_refresh) 
+        {
+            handle_UDP_refresh(task);
+        }
     }
 
     return NULL;

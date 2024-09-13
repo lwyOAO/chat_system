@@ -1,0 +1,83 @@
+[2024-09-11 20:05:47] DEBUG [src/logger.c:87]: 日志系统初始化成功
+[2024-09-11 20:05:47] DEBUG [src/logger.c:87]: 配置解析完毕
+
+[2024-09-11 20:06:49] DEBUG [src/logger.c:87]: 日志系统初始化成功
+[2024-09-11 20:06:49] DEBUG [src/logger.c:87]: 配置解析完毕
+
+[2024-09-11 20:08:49] DEBUG [src/logger.c:87]: 日志系统初始化成功
+[2024-09-11 20:08:49] DEBUG [src/logger.c:87]: 配置解析完毕
+
+[2024-09-11 20:09:51] DEBUG [src/logger.c:87]: 日志系统初始化成功
+[2024-09-11 20:09:51] DEBUG [src/logger.c:87]: 配置解析完毕
+
+[2024-09-11 20:10:52] DEBUG [src/logger.c:87]: 日志系统初始化成功
+[2024-09-11 20:10:52] DEBUG [src/logger.c:87]: 配置解析完毕
+
+[2024-09-11 20:13:07] DEBUG [src/logger.c:87]: 日志系统初始化成功
+[2024-09-11 20:13:07] DEBUG [src/logger.c:87]: 配置解析完毕
+
+[2024-09-11 20:27:26] DEBUG [src/logger.c:87]: 日志系统初始化成功
+[2024-09-11 20:27:26] DEBUG [src/logger.c:87]: 配置解析完毕
+
+[2024-09-11 20:34:29] DEBUG [src/logger.c:87]: 日志系统初始化成功
+[2024-09-11 20:34:29] DEBUG [src/logger.c:87]: 配置解析完毕
+
+[2024-09-11 20:43:07] DEBUG [src/logger.c:87]: 日志系统初始化成功
+[2024-09-11 20:43:07] DEBUG [src/logger.c:87]: 配置解析完毕
+
+[2024-09-11 20:43:09] DEBUG [src/logger.c:87]: send packet: 2 20 0 0 0
+msg: sdfds
+[2024-09-11 20:45:21] DEBUG [src/logger.c:87]: 日志系统初始化成功
+[2024-09-11 20:45:21] DEBUG [src/logger.c:87]: 配置解析完毕
+
+[2024-09-11 20:45:22] DEBUG [src/logger.c:87]: send packet: 2 20 0 0 0
+msg: sdf
+[2024-09-11 20:45:55] DEBUG [src/logger.c:87]: send packet: 1 20 0 0 0
+userid: 084691941
+password: 001
+[2024-09-11 20:49:06] DEBUG [src/logger.c:87]: 日志系统初始化成功
+[2024-09-11 20:49:06] DEBUG [src/logger.c:87]: 配置解析完毕
+
+[2024-09-11 20:49:07] DEBUG [src/logger.c:87]: send packet: 2 20 0 0 0
+msg: sdf
+[2024-09-11 20:49:20] DEBUG [src/logger.c:87]: send packet: 1 20 0 0 0
+userid: 084691941
+password: 001
+[2024-09-11 22:32:08] DEBUG [src/logger.c:87]: 日志系统初始化成功
+[2024-09-11 22:32:08] DEBUG [src/logger.c:87]: 配置解析完毕
+
+[2024-09-11 22:32:25] DEBUG [src/logger.c:87]: send packet: 1 20 0 0 0
+userid: 324750465
+password: 091
+[2024-09-11 22:32:33] DEBUG [src/logger.c:87]: send packet: 1 20 0 0 0
+userid: 324750465
+password: 001
+[2024-09-11 22:33:05] DEBUG [src/logger.c:87]: send packet: 2 20 084691941 324750465 785748067
+msg: hello!>what are you doing?
+[2024-09-11 22:53:39] DEBUG [src/logger.c:87]: 日志系统初始化成功
+[2024-09-11 22:53:39] DEBUG [src/logger.c:87]: 配置解析完毕
+
+[2024-09-11 22:53:47] DEBUG [src/logger.c:87]: send packet: 2 20 0 0 0
+msg: hei! boy
+[2024-09-11 22:54:04] DEBUG [src/logger.c:87]: send packet: 1 20 0 0 0
+userid: 084691941
+password: 001
+[2024-09-11 22:54:17] DEBUG [src/logger.c:87]: 日志系统初始化成功
+[2024-09-11 22:54:17] DEBUG [src/logger.c:87]: 配置解析完毕
+
+[2024-09-11 22:54:22] DEBUG [src/logger.c:87]: send packet: 2 20 0 0 0
+msg: sigin 324750465 001
+[2024-09-11 22:54:31] DEBUG [src/logger.c:87]: send packet: 1 20 0 0 0
+userid: 324750465
+password: in
+[2024-09-11 22:54:43] DEBUG [src/logger.c:87]: send packet: 1 20 0 0 0
+userid: 324750465
+password: 001
+[2024-09-11 22:55:21] DEBUG [src/logger.c:87]: send packet: 2 20 324750465 084691941 202013600
+msg: hei! boy!
+[2024-09-11 22:55:32] DEBUG [src/logger.c:87]: send packet: 2 20 084691941 324750465 575347478
+msg: are you ok ?
+[2024-09-11 22:56:38] DEBUG [src/logger.c:87]: send packet: 2 20 324750465 084691941 202013600
+msg: ok
+[2024-09-11 22:56:52] DEBUG [src/logger.c:87]: send packet: 2 20 084691941 324750465 575347478
+msg: you are a good boy!

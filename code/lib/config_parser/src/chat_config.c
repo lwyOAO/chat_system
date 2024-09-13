@@ -1,5 +1,6 @@
 #include "chat_config.h"
 #include <string.h>
+#include "logger.h"
 
 #define CUSTOM_CONFIG_PATH   "config/chat_config.yaml"
 
@@ -16,6 +17,7 @@ GLOBAL bool cs_parse_config(char *config_path, config_t* config)
     if (!fh)
     {
         perror("Failed to open file");
+        LOG_ERROR("Failed to open file");
         return false;
     }
 
@@ -23,6 +25,7 @@ GLOBAL bool cs_parse_config(char *config_path, config_t* config)
     if (!yaml_parser_initialize(&parser))
     {
         fputs("Failed to initialize parser!\n", stderr);
+        LOG_ERROR("Failed to initialize parser!");
         return false;
     }
 
@@ -55,48 +58,12 @@ GLOBAL bool cs_parse_config(char *config_path, config_t* config)
                         printf("key: %s\n", tk);
                     }
                 } else {
-                    strncpy(datap, tk, sizeof(datap)+1);
+                    strcpy(datap, tk);
                     //*datap = strdup(tk);
                 }
                 break;
             default: break;
         }
-
-        // switch (token.type)
-        // {
-        // case YAML_SCALAR_TOKEN:
-        //     // current_key为空，代表当前 token 为键
-        //     if (0 == strlen(current_key))
-        //     {
-        //         strncpy(current_key, (char *)token.data.scalar.value, sizeof(current_key) - 1);
-        //     }
-        //     else
-        //     {
-        //         if (strcmp(current_key, "port") == 0)
-        //         {
-        //             config->server_port = atoi((char *)token.data.scalar.value);
-        //         }
-        //         else if (strcmp(current_key, "host") == 0)
-        //         {
-        //             strncpy(config->server_host, (char *)token.data.scalar.value, sizeof(config->server_host) - 1);
-        //         }
-        //         else if (strcmp(current_key, "level") == 0)
-        //         {
-        //             strncpy(config->log_level, (char *)token.data.scalar.value, sizeof(config->log_level) - 1);
-        //         }
-        //         else if (strcmp(current_key, "file") == 0)
-        //         {
-        //             strncpy(config->log_file, (char *)token.data.scalar.value, sizeof(config->log_file) - 1);
-        //         }
-
-        //         // 清空键
-        //         memset(current_key, 0, sizeof(current_key));
-        //     }
-        //     break;
-
-        // default:
-        //     break;
-        // }
 
         if(YAML_STREAM_END_TOKEN != token.type)
         {
@@ -129,7 +96,7 @@ int parse_main_argv(chat_argv* argv_list, int argc, char* argv[])
         }
         else 
         {
-            LOG_ERR("argv format error", NULL);
+            LOG_ERROR("argv format error");
             fprintf(stderr, "argv format error");
             exit(-1);
         }
@@ -158,18 +125,6 @@ bool get_argv_value(chat_argv* argv_list, char* name, char* ret_val)
     return false;
 }
 
-bool init_log_sys()
-{
-    if(log4c_init() != 0)
-    {
-        return false;
-    }
-
-    // 获取日志类别
-    logger = log4c_category_get("root");
-    return true;
-}
-
 int init_config(int argc, char * argv[], chat_argv* argv_list, config_t* config)
 {
     printf("================开始配置系统===================\n");
@@ -177,13 +132,15 @@ int init_config(int argc, char * argv[], chat_argv* argv_list, config_t* config)
     char* config_path = NULL;
     bool success = false;
 
-    // 初始化 log4c 日志系统
-    if(!init_log_sys())
+    // 初始化日志系统
+    Logger* logger = NULL;
+    logger = init_default_logger(DEBUG);
+    if( logger->if_init == 0)
     {
-        fprintf(stderr, "log4c init failed!");
+        fprintf(stderr, "logger init failed!");
         return EXIT_FAILURE;
     }
-    LOG_DEBUG("日志系统初始化成功！");
+    LOG_DEBUG("日志系统初始化成功");
 
     // 解析程序参数
     real_argc = parse_main_argv(argv_list, argc, argv);
@@ -199,11 +156,46 @@ int init_config(int argc, char * argv[], chat_argv* argv_list, config_t* config)
     success = cs_parse_config(config_path, config);
     if(!success)
     {
-        log4c_category_error(logger, "get configure failed!");
+        LOG_ERROR("get configure failed!");
         fprintf(stderr, "get configure failed!");
         return EXIT_FAILURE;
     }
     LOG_DEBUG("配置解析完毕");
+    LOG_INFO("服务器ip: %s, port: %s", config->server_host, config->server_port);
+
+    printf("================配置系统完毕===================\n");
+
+    return EXIT_SUCCESS;
+}
+
+int parse_cmd(char *message, Custom_header *header, char **lines, int *line_count)
+{
+    char *line;
+    char *token;
+    char *tokens[5];
+    int token_count = 0;
+
+    // 分割每行
+    line = strtok(message, "\n");
+    while (line != NULL)
+    {
+        lines[(*line_count)++] = line;
+        line = strtok(NULL, "\n");
+    }
+
+    // 第一行为头部, 解析头部
+    token = strtok(lines[0], " ");
+    while (token != NULL)
+    {
+        tokens[token_count++] = token;
+        token = strtok(NULL, " ");
+    }
+
+    header->type = atoi(tokens[0]);
+    header->length = atoi(tokens[1]);
+    strcpy(header->target_id, tokens[2]);
+    strcpy(header->client_id, tokens[3]);
+    strcpy(header->online_id, tokens[4]);
 
     return EXIT_SUCCESS;
 }

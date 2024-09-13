@@ -1,10 +1,7 @@
 #ifndef __CHAT_GLOBAL_H__
 #define __CHAT_GLOBAL_H__
 
-#include <log4c.h>
 #include <stdio.h>
-
-extern log4c_category_t* logger;
 
 typedef struct 
 {
@@ -22,20 +19,20 @@ typedef struct {
 typedef struct {
     int type;  // 消息类型
     int length; // 消息长度
-    int target_id; // 目标用户id
-    int client_id; // 用户id
-    int signup_id; // 用户已登录的标识, 未登录为0
+    char target_id[10]; // 目标用户id
+    char client_id[10]; // 用户id
+    char online_id[10]; // 用户已登录的标识, 未登录为0
+    int sockfd; // 额外增加的，不加入包头部
 } Custom_header;
 
 enum cmd_code {
     SIGNUP = 0,
     SIGNIN,
 	SEND,
+    SELECT,
+    NOT_SIGNIN,
 };
 
 #define LOCAL   static
 #define GLOBAL
-
-#define LOG_DEBUG(format, args...)    log4c_category_debug(logger, format, ##args);
-#define LOG_ERR(format, args...)      log4c_category_error(logger, format, ##args);
 #endif

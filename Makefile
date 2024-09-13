@@ -9,7 +9,7 @@ BUILD_DIR = build
 
 # 引入的库文件
 OUT_LIBS_DIR = -L/usr/lib/x86_64-linux-gnu -L/usr/lib
-OUT_LIBS = -lyaml -luv -llog4c -lpthread -lncurses -lncursesw
+OUT_LIBS = -lyaml -luv -lpthread -lncurses -lncursesw -lmysqlclient
 
 # 程序目录
 BIN_DIR = bin
@@ -29,8 +29,6 @@ all: lib client server
 	mv $(CLIENT) $(BIN_DIR)/client/
 	cp code/client/config/chat_config.yaml $(BIN_DIR)/client/config
 	cp code/server/config/chat_config.yaml $(BIN_DIR)/server/config
-	cp code/server/config/log4crc.in $(BIN_DIR)/server
-	cp code/client/config/log4crc.in $(BIN_DIR)/client
 
 # 进入client目录，调用 client 的 Makefile 进行编译
 client: lib

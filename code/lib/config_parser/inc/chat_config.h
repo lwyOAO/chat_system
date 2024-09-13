@@ -21,4 +21,6 @@ bool init_log_sys();
 // 初始化系统全部配置
 int init_config(int argc, char * argv[], chat_argv* argv_list, config_t* client_config);
 
+// 解析头部信息
+int parse_cmd(char *message, Custom_header *header, char **lines, int *line_count);
 #endif

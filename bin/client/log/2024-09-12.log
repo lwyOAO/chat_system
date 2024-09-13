@@ -1,0 +1,45 @@
+[2024-09-12 01:18:08] DEBUG [src/logger.c:87]: 日志系统初始化成功
+[2024-09-12 01:18:08] DEBUG [src/logger.c:87]: 配置解析完毕
+
+[2024-09-12 01:18:08] INFO [src/logger.c:87]: 服务器ip: 127.0.0.1, port: 9000
+[2024-09-12 01:23:53] DEBUG [src/logger.c:87]: 日志系统初始化成功
+[2024-09-12 01:23:53] DEBUG [src/logger.c:87]: 配置解析完毕
+
+[2024-09-12 01:23:53] INFO [src/logger.c:87]: 服务器ip: 192.168.2, port: 9000
+[2024-09-12 01:24:14] ERROR [src/logger.c:87]: 建立连接失败, IP: 192.168.2, port: 9000
+[2024-09-12 01:26:15] DEBUG [src/logger.c:87]: 日志系统初始化成功
+[2024-09-12 01:33:30] DEBUG [src/logger.c:87]: 日志系统初始化成功
+[2024-09-12 01:33:30] DEBUG [src/logger.c:87]: 配置解析完毕
+
+[2024-09-12 01:33:30] INFO [src/logger.c:87]: 服务器ip: 192.168.217.128, port: 9000
+[2024-09-12 01:47:26] DEBUG [src/logger.c:87]: 日志系统初始化成功
+[2024-09-12 01:47:26] DEBUG [src/logger.c:87]: 配置解析完毕
+
+[2024-09-12 01:47:26] INFO [src/logger.c:87]: 服务器ip: 192.168.217.128, port: 9000
+[2024-09-12 01:52:05] DEBUG [src/logger.c:87]: send packet: 1 20 0 0 0
+userid: 324750465
+password: 001
+[2024-09-12 01:52:26] DEBUG [src/logger.c:87]: send packet: 2 20 324750465 324750465 924086355
+msg: sdfs
+[2024-09-12 01:52:47] DEBUG [src/logger.c:87]: send packet: 2 20 084691941 324750465 924086355
+msg: fds
+[2024-09-12 01:57:02] DEBUG [src/logger.c:87]: send packet: 2 20 084691941 324750465 924086355
+msg: dfsa
+[2024-09-12 05:34:19] DEBUG [src/chat_config.c:143]:     日志系统初始化成功
+[2024-09-12 05:34:19] DEBUG [src/chat_config.c:163]:     配置解析完毕
+[2024-09-12 05:34:19] INFO [src/chat_config.c:164]:     服务器ip: 192.168.217.128, port: 9000
+[2024-09-12 05:34:33] DEBUG [send packet: %s:1962377200]:     
+[2024-09-12 05:34:49] INFO [src/chat_client_scan.c:49]:     Recv broadcast message: DISCOVER_CLIENTS
+[2024-09-12 05:34:49] INFO [src/chat_client_scan.c:58]:     sendto success
+[2024-09-12 05:35:24] INFO [src/chat_client_scan.c:49]:     Recv broadcast message: DISCOVER_CLIENTS
+[2024-09-12 05:35:24] INFO [src/chat_client_scan.c:58]:     sendto success
+[2024-09-12 23:48:22] DEBUG [src/chat_config.c:143]:     日志系统初始化成功
+[2024-09-12 23:48:22] DEBUG [src/chat_config.c:163]:     配置解析完毕
+[2024-09-12 23:48:22] INFO [src/chat_config.c:164]:     服务器ip: 192.168.217.128, port: 9000
+[2024-09-12 23:48:35] DEBUG [send packet: %s:-1742576064]:     
+[2024-09-12 23:49:07] DEBUG [send packet: %s:-1742576080]:     
+[2024-09-12 23:52:12] DEBUG [src/chat_config.c:143]:     日志系统初始化成功
+[2024-09-12 23:52:12] DEBUG [src/chat_config.c:163]:     配置解析完毕
+[2024-09-12 23:52:12] INFO [src/chat_config.c:164]:     服务器ip: 192.168.217.128, port: 9000
+[2024-09-12 23:52:14] DEBUG [send packet: %s:114236672]:     
+[2024-09-12 23:52:28] DEBUG [send packet: %s:114236656]:     

@@ -1,0 +1,81 @@
+[2024-09-12 00:58:36] DEBUG [src/logger.c:87]: 日志系统初始化成功
+[2024-09-12 00:58:36] DEBUG [src/logger.c:87]: 配置解析完毕
+
+[2024-09-12 00:58:36] INFO [src/logger.c:87]: Sent discovery message to clients
+[2024-09-12 01:21:53] DEBUG [src/logger.c:87]: 日志系统初始化成功
+[2024-09-12 01:21:53] DEBUG [src/logger.c:87]: 配置解析完毕
+
+[2024-09-12 01:21:53] INFO [src/logger.c:87]: 服务器ip: 0.0.0.0, port: 9000
+[2024-09-12 01:21:53] INFO [src/logger.c:87]: Sent discovery message to clients
+[2024-09-12 01:33:23] DEBUG [src/logger.c:87]: 日志系统初始化成功
+[2024-09-12 01:33:23] DEBUG [src/logger.c:87]: 配置解析完毕
+
+[2024-09-12 01:33:23] INFO [src/logger.c:87]: 服务器ip: 0.0.0.0, port: 9000
+[2024-09-12 01:33:23] INFO [src/logger.c:87]: Sent discovery message to clients
+[2024-09-12 04:16:36] INFO [src/chat_config.c:164]: 服务器ip: 0.0.0.0, port: 9000
+[2024-09-12 04:16:37] INFO [src/chat_server_scan.c:22]: Sent discovery message to clients
+[2024-09-12 04:17:10] DEBUG [src/chat_config.c:163]: 配置解析完毕
+[2024-09-12 04:17:10] INFO [src/chat_config.c:164]: 服务器ip: 0.0.0.0, port: 9000
+[2024-09-12 04:17:10] INFO [src/chat_server_scan.c:22]: Sent discovery message to clients
+[2024-09-12 04:17:39] DEBUG [src/chat_config.c:143]: 日志系统初始化成功
+[2024-09-12 04:17:39] DEBUG [src/chat_config.c:163]: 配置解析完毕
+[2024-09-12 04:17:39] INFO [src/chat_config.c:164]: 服务器ip: 0.0.0.0, port: 9000
+[2024-09-12 04:17:39] INFO [src/chat_server_scan.c:22]: Sent discovery message to clients
+[2024-09-12 04:19:27] DEBUG [src/chat_config.c:143]:     日志系统初始化成功
+[2024-09-12 04:19:27] DEBUG [src/chat_config.c:163]:     配置解析完毕
+[2024-09-12 04:19:27] INFO [src/chat_config.c:164]:     服务器ip: 0.0.0.0, port: 9000
+[2024-09-12 04:19:27] INFO [src/chat_server_scan.c:22]:     Sent discovery message to clients
+[2024-09-12 05:32:31] DEBUG [src/chat_config.c:143]:     日志系统初始化成功
+[2024-09-12 05:32:31] DEBUG [src/chat_config.c:163]:     配置解析完毕
+[2024-09-12 05:32:31] INFO [src/chat_config.c:164]:     服务器ip: 0.0.0.0, port: 9000
+[2024-09-12 05:34:14] DEBUG [src/chat_config.c:143]:     日志系统初始化成功
+[2024-09-12 05:34:14] DEBUG [src/chat_config.c:163]:     配置解析完毕
+[2024-09-12 05:34:14] INFO [src/chat_config.c:164]:     服务器ip: 0.0.0.0, port: 9000
+[2024-09-12 05:34:14] INFO [src/chat_server_scan.c:53]:     Broadcast message sent
+[2024-09-12 05:34:19] DEBUG [src/chat_server_scan.c:68]:     time out
+[2024-09-12 05:34:49] INFO [src/chat_server_scan.c:53]:     Broadcast message sent
+[2024-09-12 05:34:49] DEBUG [src/chat_server_scan.c:73]:     Rrceive response from client 192.168.217.128: 084691941
+[2024-09-12 05:34:54] DEBUG [src/chat_server_scan.c:68]:     time out
+[2024-09-12 05:35:24] INFO [src/chat_server_scan.c:53]:     Broadcast message sent
+[2024-09-12 05:35:24] DEBUG [src/chat_server_scan.c:73]:     Rrceive response from client 192.168.217.128: 084691941
+[2024-09-12 05:35:29] DEBUG [src/chat_server_scan.c:68]:     time out
+[2024-09-12 23:48:10] DEBUG [src/chat_config.c:143]:     日志系统初始化成功
+[2024-09-12 23:48:10] DEBUG [src/chat_config.c:163]:     配置解析完毕
+[2024-09-12 23:48:10] INFO [src/chat_config.c:164]:     服务器ip: 0.0.0.0, port: 9000
+[2024-09-12 23:48:10] INFO [src/chat_server_scan.c:59]:     Broadcast message sent
+[2024-09-12 23:48:16] DEBUG [src/chat_server_scan.c:76]:     time out
+[2024-09-12 23:48:16] DEBUG [src/chat_server_thread_pool.c:70]:     refresh online_user_list
+[2024-09-12 23:48:35] DEBUG [src/chat_server_socket.c:174]:     receive one message: 2 20 0 0 0
+msg: sd
+
+[2024-09-12 23:48:35] DEBUG [src/chat_server_thread_pool.c:82]:     Thread handling message from client 8: 2 20 0 0 0
+msg: sd
+
+[2024-09-12 23:49:07] DEBUG [src/chat_server_socket.c:174]:     receive one message: 1 20 0 0 0
+userid: 084691941
+password: 001
+
+[2024-09-12 23:49:07] DEBUG [src/chat_server_thread_pool.c:82]:     Thread handling message from client 8: 1 20 0 0 0
+userid: 084691941
+password: 001
+
+[2024-09-12 23:52:07] DEBUG [src/chat_config.c:143]:     日志系统初始化成功
+[2024-09-12 23:52:07] DEBUG [src/chat_config.c:163]:     配置解析完毕
+[2024-09-12 23:52:07] INFO [src/chat_config.c:164]:     服务器ip: 0.0.0.0, port: 9000
+[2024-09-12 23:52:07] INFO [src/chat_server_scan.c:59]:     Broadcast message sent
+[2024-09-12 23:52:12] DEBUG [src/chat_server_scan.c:76]:     time out
+[2024-09-12 23:52:12] DEBUG [src/chat_server_thread_pool.c:70]:     refresh online_user_list
+[2024-09-12 23:52:14] DEBUG [src/chat_server_socket.c:174]:     receive one message: 2 20 0 0 0
+msg: dsf
+
+[2024-09-12 23:52:14] DEBUG [src/chat_server_thread_pool.c:82]:     Thread handling message from client 8: 2 20 0 0 0
+msg: dsf
+
+[2024-09-12 23:52:28] DEBUG [src/chat_server_socket.c:174]:     receive one message: 1 20 0 0 0
+userid: 324750465
+password: 001
+
+[2024-09-12 23:52:28] DEBUG [src/chat_server_thread_pool.c:82]:     Thread handling message from client 8: 1 20 0 0 0
+userid: 324750465
+password: 001
+

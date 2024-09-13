@@ -4,9 +4,10 @@
 #include <string.h>
 #include <sys/socket.h>
 #include <sys/types.h>
-
 #include "chat_global.h"
 #include "chat_server_thread_pool.h"
+#include "chat_server_scan.h"
+#include "logger.h"
 
 #define MAX_EVENT 10
 
@@ -14,7 +15,7 @@ client_t clients[MAX_CLIENTS];
 int client_count = 0;
 
 void broadcast_message(char *message, int sender_sockfd, int len)
-{   
+{
     // 向客户端发送数据
     for (int i = 0; i < client_count; i++)
     {
@@ -25,6 +26,20 @@ void broadcast_message(char *message, int sender_sockfd, int len)
     }
 }
 
+void build_header(Custom_header *header, char *buffer)
+{
+    sprintf(buffer, "%d ", header->type);
+    sprintf(buffer + strlen(buffer), "%d ", header->length);
+    sprintf(buffer + strlen(buffer), "%s ", header->target_id);
+    sprintf(buffer + strlen(buffer), "%s ", header->client_id);
+    sprintf(buffer + strlen(buffer), "%s\n", header->online_id);
+}
+
+void fill_data(char *buff, char *data)
+{
+    sprintf(buff + strlen(buff), "%s", data);
+}
+
 int chat_server_start(char *ip, int port)
 {
     int client_sockfd, epollfd;
@@ -33,6 +48,7 @@ int chat_server_start(char *ip, int port)
     struct sockaddr_in client_addr;
     socklen_t clnt_addr_size = sizeof(client_addr);
     char buffer[BUFF_SIZE];
+    pthread_t scan_thread;
 
     // 创建套接字
     /*
@@ -98,6 +114,8 @@ int chat_server_start(char *ip, int port)
 
     // Initialize the thread pool
     init_thread_pool();
+    // 创建局域网扫描线程
+    pthread_create(&scan_thread, NULL, scan_local_client, NULL);
 
     while (1)
     {
@@ -136,12 +154,13 @@ int chat_server_start(char *ip, int port)
                 clients[client_count].sockfd = client_sockfd;
                 clients[client_count++].client_addr = client_addr;
                 printf("new client connect\n");
-            } else
+            }
+            else
             {
                 // data from an existing client
                 int client_sockfd = events[i].data.fd;
                 int bytes_read = recv(client_sockfd, buffer, sizeof(buffer) - 1, 0);
-                if(bytes_read > 0)
+                if (bytes_read > 0)
                 {
                     buffer[bytes_read] = '\0';
 
@@ -150,36 +169,36 @@ int chat_server_start(char *ip, int port)
                     task->sockfd = client_sockfd;
                     strncpy(task->message, buffer, BUFF_SIZE);
                     task->message_len = bytes_read;
+                    task->type = TCP;
 
-                    printf("receive one message\n");
+                    LOG_DEBUG("receive one message: %s\n", buffer);
 
                     // Add the task to the thread pool
                     add_task_to_pool(task);
-                } else if(bytes_read == 0)
+                }
+                else if (bytes_read == 0)
                 {
-                    printf("Client disconnected");
+                    printf("Client disconnected\n");
                     close(client_sockfd);
                     epoll_ctl(epollfd, EPOLL_CTL_DEL, client_sockfd, NULL);
-                    for(int j = 0; j < client_count; j++)
+                    for (int j = 0; j < client_count; j++)
                     {
-                        if(clients[j].sockfd == client_sockfd)
+                        if (clients[j].sockfd == client_sockfd)
                         {
                             clients[j] = clients[--client_count];
                             break;
                         }
                     }
-                } else 
+                }
+                else
                 {
                     perror("recv error");
                     close(client_sockfd);
                     epoll_ctl(epollfd, EPOLL_CTL_DEL, client_sockfd, NULL);
-
                 }
             }
         }
     }
-
-    
 
     // 关闭套接字
     close(server_sockfd);
