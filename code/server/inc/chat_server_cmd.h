@@ -14,4 +14,6 @@ int parse_cmd(char *message, Custom_header *header, char **lines, int *line_coun
 int handle_sign_in(int line_count, Custom_header *old_header, char *buffer, char **lines);
 int handle_send(int line_count, Custom_header *old_header, char *buffer, char **lines);
 int handle_not_sign_in(int line_count, Custom_header *old_header, char *buffer, char **lines);
+int handle_get_friend_list(int line_count, Custom_header *old_header, char *buffer, char **lines);
+int handle_add_friend(int line_count, Custom_header *old_header, char *buffer, char **lines);
 #endif

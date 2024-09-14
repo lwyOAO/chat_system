@@ -79,3 +79,6 @@ password: 001
 userid: 324750465
 password: 001
 
+[2024-09-12 23:57:12] INFO [src/chat_server_scan.c:59]:     Broadcast message sent
+[2024-09-12 23:57:12] DEBUG [src/chat_server_scan.c:91]:     Rrceive response from client 192.168.217.128: 324750465
+[2024-09-12 23:57:18] DEBUG [src/chat_server_scan.c:76]:     time out

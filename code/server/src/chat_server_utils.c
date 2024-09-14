@@ -2,6 +2,8 @@
 #include <string.h>
 #include <stdlib.h>
 #include "chat_server_utils.h"
+#include "chat_server_socket.h"
+#include "logger.h"
 
 Online_user* online_user_list_head = NULL;
 Online_user* online_user_list_tail = NULL;
@@ -94,4 +96,12 @@ int add_online_user(char* user_id, int sockfd, char* online_id)
     }
 
     return EXIT_SUCCESS;
+}
+
+int notify_my_online(Custom_header *old_header, char* buff)
+{
+    LOG_DEBUG("ENTER notify_my_online");
+    build_header(old_header, buff);
+    LOG_DEBUG("Leave notify_my_online");
+    return 0;
 }

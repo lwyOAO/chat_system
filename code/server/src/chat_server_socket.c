@@ -35,10 +35,10 @@ void build_header(Custom_header *header, char *buffer)
     sprintf(buffer + strlen(buffer), "%s\n", header->online_id);
 }
 
-void fill_data(char *buff, char *data)
-{
-    sprintf(buff + strlen(buff), "%s", data);
-}
+// void fill_data(char *buff, char *data)
+// {
+//     sprintf(buff + strlen(buff), "%s", data);
+// }
 
 int chat_server_start(char *ip, int port)
 {

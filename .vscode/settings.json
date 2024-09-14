@@ -12,7 +12,8 @@
         "chat_server_socket.h": "c",
         "chat_client_cmd.h": "c",
         "chat_server_thread_pool.h": "c",
-        "logger.h": "c"
+        "logger.h": "c",
+        "chat_server_mysql_friends.h": "c"
     },
     "makefile.configureOnOpen": false
 }

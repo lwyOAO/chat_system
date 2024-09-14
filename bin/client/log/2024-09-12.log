@@ -43,3 +43,5 @@ msg: dfsa
 [2024-09-12 23:52:12] INFO [src/chat_config.c:164]:     服务器ip: 192.168.217.128, port: 9000
 [2024-09-12 23:52:14] DEBUG [send packet: %s:114236672]:     
 [2024-09-12 23:52:28] DEBUG [send packet: %s:114236656]:     
+[2024-09-12 23:57:12] INFO [src/chat_client_scan.c:49]:     Recv broadcast message: DISCOVER_CLIENTS
+[2024-09-12 23:57:12] INFO [src/chat_client_scan.c:58]:     sendto success

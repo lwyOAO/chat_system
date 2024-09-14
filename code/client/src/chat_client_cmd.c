@@ -12,6 +12,7 @@ extern Client_g client_info;
 extern WINDOW *display_win;
 extern char who[64];
 extern char target_id[10];
+extern my_friend *frineds;
 
 CMD_MAP_T g_client_cmdTable[] =
     {
@@ -19,7 +20,9 @@ CMD_MAP_T g_client_cmdTable[] =
         {"signup", handle_sign_up, SIGNUP, "sign up your information", NULL},
         {"signin", handle_sign_in, SIGNIN, "sign in", NULL},
         {"select", handle_select, SELECT, "select target user", NULL},
-
+        {"get-friends", handle_get_friends, GET_FRIEND_LIST, "get friend list", NULL},
+        {"addfriend", handle_add_friend, ADD_FRIEND, "add friend", NULL},
+        {"friends", handle_show_friends, SHOW_FRIENDS, "show your friends", NULL},
         // { "server", NULL, NULL, g_client_sub_server_cmdTable, 0, NULL, NULL },
 
         /* added item above this line */
@@ -33,6 +36,9 @@ RECV_MAP_T g_recv_cmdTable[] =
         {SIGNIN, recv_sign_in},
         {SEND, recv_msg},
         {NOT_SIGNIN, recv_not_sign_in},
+        {GET_FRIEND_LIST, recv_get_friends},
+        {ADD_FRIEND, recv_add_friend},
+        {NOTIFY_ONLINE, recv_friend_online},
 
         /* added item above this line */
         {-1, NULL},
@@ -84,6 +90,7 @@ int handle_select(int num, int code, char *buffer, char **tokens)
     return SELECT;
 }
 
+// 这个函数不是处理命令的函数，故参数有变化
 int handle_default_send(int num, int code, char *buffer, char *msg)
 {
     build_header(code, target_id, buffer);
@@ -93,6 +100,34 @@ int handle_default_send(int num, int code, char *buffer, char *msg)
     strcpy(buffer + strlen(buffer), msg);
 
     return SEND;
+}
+
+int handle_get_friends(int num, int code, char *buffer, char **tokens)
+{
+    build_header(code, target_id, buffer);
+
+    return SEND;
+}
+
+int handle_add_friend(int num, int code, char *buffer, char **tokens)
+{
+    build_header(code, tokens[1], buffer);
+
+    return ADD_FRIEND;
+}
+
+int handle_show_friends(int num, int code, char *buffer, char **tokens)
+{
+    my_friend *ptr = frineds;
+    wprintw(display_win, "my frineds: \n");
+    while (ptr != NULL)
+    {
+        wprintw(display_win, "    %s\n", ptr->id);
+        ptr = ptr->next;
+    }
+    wrefresh(display_win);
+
+    return SHOW_FRIENDS;
 }
 
 //**********************************
@@ -137,6 +172,11 @@ int recv_sign_in(int line_count, Custom_header *old_header, char *buffer, char *
             {
                 show_msg("system", "sign in successfully!");
             }
+            else
+            {
+                show_msg("system", "sign in failed!");
+                return SIGNIN;
+            }
         }
         else if (strcmp(token, "online_id") == 0)
         {
@@ -150,7 +190,7 @@ int recv_sign_in(int line_count, Custom_header *old_header, char *buffer, char *
         }
     }
 
-    return SIGNIN;
+    return GET_FRIEND_LIST;
 }
 
 int recv_msg(int line_count, Custom_header *old_header, char *buffer, char **lines)
@@ -194,6 +234,154 @@ int recv_not_sign_in(int line_count, Custom_header *old_header, char *buffer, ch
     return NOT_SIGNIN;
 }
 
+int recv_get_friends(int line_count, Custom_header *old_header, char *buffer, char **lines)
+{
+    char *token;
+
+    LOG_DEBUG("%s", buffer);
+
+    my_friend *friend_ptr = NULL;
+    my_friend *friend_tail = frineds;
+
+    while (frineds != NULL)
+    {
+        friend_tail = friend_tail->next;
+        free(frineds);
+        frineds = friend_tail;
+    }
+
+    token = strtok(lines[1], ": ");
+    if (strcmp(token, "code") == 0) // 用户id在第一位
+    {
+        token = strtok(NULL, ": ");
+        if (strcmp(token, "1") != 0)
+        {
+            return SEND;
+        }
+    }
+
+    for (int i = 2; i < line_count; i++)
+    {
+        friend_ptr = (my_friend *)malloc(sizeof(my_friend));
+        friend_ptr->next = NULL;
+
+        token = strtok(lines[i], " ");
+        if (strcmp(token, client_info.client_id) == 0) // 用户id在第一位
+        {
+            // 2
+            token = strtok(NULL, " ");
+            strcpy(friend_ptr->id, token);
+            // 3
+            token = strtok(NULL, " ");
+            if (strcmp(token, "1") == 0)
+            {
+                friend_ptr->ban = 1;
+            }
+            else
+            {
+                friend_ptr->ban = 0;
+            }
+            // 4
+            token = strtok(NULL, " ");
+            if (strcmp(token, "1") == 0)
+            {
+                friend_ptr->banned = 1;
+            }
+            else
+            {
+                friend_ptr->banned = 0;
+            }
+            // 5
+            token = strtok(NULL, " ");
+            if (strcmp(token, "1") == 0)
+            {
+                friend_ptr->love = 1;
+            }
+            else
+            {
+                friend_ptr->love = 0;
+            }
+        }
+        else // 用户id在第二位
+        {
+            strcpy(friend_ptr->id, token);
+            token = strtok(NULL, " ");
+            // 3
+            token = strtok(NULL, " ");
+            if (strcmp(token, "1") == 0)
+            {
+                friend_ptr->banned = 1;
+            }
+            else
+            {
+                friend_ptr->banned = 0;
+            }
+            // 4
+            token = strtok(NULL, " ");
+            if (strcmp(token, "1") == 0)
+            {
+                friend_ptr->ban = 1;
+            }
+            else
+            {
+                friend_ptr->ban = 0;
+            }
+            token = strtok(NULL, " ");
+            // 6
+            token = strtok(NULL, " ");
+            if (strcmp(token, "1") == 0)
+            {
+                friend_ptr->love = 1;
+            }
+            else
+            {
+                friend_ptr->love = 0;
+            }
+        }
+
+        if (friend_tail == NULL)
+        {
+            frineds = friend_ptr;
+            friend_tail = friend_ptr;
+        }
+        else
+        {
+            friend_tail->next = friend_ptr;
+            friend_tail = friend_tail->next;
+        }
+    }
+
+    return SEND;
+}
+
+int recv_add_friend(int line_count, Custom_header *old_header, char *buffer, char **lines)
+{
+    char *token;
+
+    for (int i = 1; i < line_count; i++)
+    {
+        token = strtok(lines[i], ": ");
+        if (strcmp(token, "code") == 0)
+        {
+            token = strtok(NULL, "");
+            if (strcmp(token, "1") == 0)
+            {
+                show_msg("system", "add friend succesfully");
+            }
+        }
+    }
+
+    return ADD_FRIEND;
+}
+
+int recv_friend_online(int line_count, Custom_header *old_header, char *buffer, char **lines)
+{
+    wprintw(display_win, "%s: %s have online\n", "system", old_header->client_id);
+    wrefresh(display_win);
+
+    return NOTIFY_ONLINE;
+}
+
 int cs_client_order_entry(char *order, int sockfd)
 {
     char *tokens[10];
@@ -230,12 +418,13 @@ int cs_client_order_entry(char *order, int sockfd)
         }
         ret = handlefunc(count, g_client_cmdTable[i].cmd_code, buffer, tokens);
         has_handle = 1;
-    } else // 没有对应命令, 将分割的两部分合并
+    }
+    else // 没有对应命令, 将分割的两部分合并
     {
         second_part = strtok(NULL, "");
-        if(second_part != NULL)
+        if (second_part != NULL)
         {
-            *(second_part-1) = ' ';
+            *(second_part - 1) = ' ';
         }
     }
 
@@ -248,12 +437,12 @@ int cs_client_order_entry(char *order, int sockfd)
             show_msg("system", "send to server failed!");
         }
         else
-        {   
+        {
             LOG_DEBUG("send packet: %s", buffer);
             show_msg("Me", order);
         }
     }
-    else if (SELECT == ret)
+    else if (SELECT == ret || SHOW_FRIENDS == ret)
     {
         // 不做处理
     }
@@ -262,7 +451,8 @@ int cs_client_order_entry(char *order, int sockfd)
         if (send(sockfd, buffer, strlen(buffer), 0) < 0)
         {
             show_msg("system", "send to server failed!");
-        } else 
+        }
+        else
         {
             LOG_DEBUG("send packet: %s", buffer);
         }

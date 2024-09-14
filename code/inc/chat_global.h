@@ -25,13 +25,18 @@ typedef struct {
     int sockfd; // 额外增加的，不加入包头部
 } Custom_header;
 
-enum cmd_code {
+typedef enum cmd_code {
     SIGNUP = 0,
     SIGNIN,
 	SEND,
     SELECT,
     NOT_SIGNIN,
-};
+    GET_FRIEND_LIST,
+    ADD_FRIEND,
+    RECV_FRIEND,
+    SHOW_FRIENDS,
+    NOTIFY_ONLINE,
+} cmd_code;
 
 #define LOCAL   static
 #define GLOBAL

@@ -4,8 +4,10 @@
 #include <stdlib.h>
 #include <time.h>
 #include "chat_server_mysql.h"
+#include "chat_server_mysql_friends.h"
 #include "chat_server_socket.h"
 #include "chat_server_utils.h"
+#include "logger.h"
 
 #define USER_ID_LEN 9
 
@@ -16,6 +18,8 @@ CMD_MAP_T g_server_cmdTable[] =
         {SIGNIN, handle_sign_in},
         {SEND, handle_send},
         {NOT_SIGNIN, handle_not_sign_in},
+        {GET_FRIEND_LIST, handle_get_friend_list},
+        {ADD_FRIEND, handle_add_friend},
 
         /* added item above this line */
         {-1, NULL},
@@ -82,13 +86,14 @@ int handle_sign_up(int line_count, Custom_header *old_header, char *buffer, char
 
     // 构建响应包头部
     build_header(old_header, buffer);
-    fill_data(buffer, "code: 1\nsign up successfully");
+    sprintf(buffer + strlen(buffer), "code: 1\nsign up successfully");
 
     return SIGNUP;
 }
 
 int handle_sign_in(int line_count, Custom_header *old_header, char *buffer, char **lines)
 {
+    LOG_DEBUG("ENTER handle_sign_in");
     char *token;
     mysql_users user;
     char user_id[10] = {0};
@@ -128,7 +133,9 @@ int handle_sign_in(int line_count, Custom_header *old_header, char *buffer, char
         }
     }
 
-    fill_data(buffer, "code: 0");
+    sprintf(buffer + strlen(buffer), "code: 0");
+
+    LOG_DEBUG("Leave handle_sign_in");
 
     return SIGNIN;
 }
@@ -154,4 +161,58 @@ int handle_not_sign_in(int line_count, Custom_header *old_header, char *buffer, 
     sprintf(buffer + strlen(buffer), "error: %s\n", "you have not sign in");
 
     return NOT_SIGNIN;
+}
+
+int handle_get_friend_list(int line_count, Custom_header *old_header, char *buffer, char **lines)
+{
+    LOG_DEBUG("ENTER handle_get_friend_list");
+    mysql_friends* friend_list = NULL;
+    mysql_friends* ptr = NULL;
+
+    strcpy(old_header->target_id, old_header->client_id);
+    build_header(old_header, buffer);
+
+    friend_list = find_friends_by_id(old_header->client_id);
+    if(friend_list != NULL)
+    {
+        sprintf(buffer + strlen(buffer), "code: 1\n");
+    } else 
+    {
+        sprintf(buffer + strlen(buffer), "code: 0\n");
+    }
+
+    while(friend_list != NULL)
+    {
+        ptr = friend_list;
+        sprintf(buffer + strlen(buffer), "%s %s %d %d %d %d\n", friend_list->user_id_1, friend_list->user_id_2,
+                    friend_list->black_1, friend_list->black_2, friend_list->white_1, friend_list->white_2);
+        friend_list = friend_list->next;
+        free(ptr);
+    }
+
+    LOG_DEBUG("Leave handle_get_friend_list");
+
+    return GET_FRIEND_LIST;
+}
+
+int handle_add_friend(int line_count, Custom_header *old_header, char *buffer, char **lines)
+{
+    mysql_friends friend;
+
+    strcpy(friend.user_id_1, old_header->client_id);
+    strcpy(friend.user_id_2, old_header->target_id);
+    friend.black_1 = 0;
+    friend.black_2 = 0;
+    friend.next = NULL;
+    friend.white_1 = 0;
+    friend.white_2 = 0;
+
+    insert_friend(&friend);
+    
+    strcpy(old_header->target_id, old_header->client_id);
+    build_header(old_header, buffer);
+
+    sprintf(buffer + strlen(buffer), "code: 1");
+
+    return ADD_FRIEND;
 }

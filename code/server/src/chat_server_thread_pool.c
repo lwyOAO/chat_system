@@ -7,6 +7,7 @@
 #include "chat_server_utils.h"
 #include "chat_config.h"
 #include "logger.h"
+#include "chat_server_mysql_friends.h"
 
 thread_pool_t pool;
 extern int client_count;
@@ -77,6 +78,7 @@ void handle_TCP(task_t *task)
     int line_count = 0;
     char buffer[MAX_PACKET_SIZE];
     int target_sockfd;
+    cmd_code ret;
 
     // Process the client's message
     LOG_DEBUG("Thread handling message from client %d: %s\n", task->sockfd, task->message);
@@ -100,30 +102,51 @@ void handle_TCP(task_t *task)
     {
         if (g_server_cmdTable[i].cmd_code == header.type)
         {
-            g_server_cmdTable[i].func(line_count, &header, buffer, lines);
+            ret = g_server_cmdTable[i].func(line_count, &header, buffer, lines);
         }
     }
 
-    // 发送id和目标id都一样，代表是注册或者登录处理
+    // 发送id和目标id都一样，代表是要发回给用户的
     if (strcmp(header.client_id, header.target_id) == 0)
     {
-        printf("==================\n");
-        printf("prepare send: %s\n", buffer);
+        LOG_DEBUG("prepare send: %s", buffer);
         send(task->sockfd, buffer, strlen(buffer), 0);
+
+        if(SIGNIN == ret)
+        {
+            // 通知好友
+            char** friend_list = find_common_friends_by_id(header.client_id);
+            int i = 0;
+            while (friend_list[i] != NULL)
+            {
+                // 过滤离线朋友
+                target_sockfd = find_sockfd_by_id(friend_list[i]);
+                if(target_sockfd > 0)
+                {
+                    memset(buffer, 0, sizeof(buffer));
+                    strcpy(header.target_id, friend_list[i]);
+                    header.type = NOTIFY_ONLINE;
+                    notify_my_online(&header, buffer);
+                    send(target_sockfd, buffer, strlen(buffer), 0);
+                }
+                free(friend_list[i]);
+                i++;
+            }
+            free(friend_list);
+        }
     }
     else
     {
         target_sockfd = find_sockfd_by_id(header.target_id);
 
-        printf("==================\n");
-        printf("forward: %s\n", buffer);
+        LOG_DEBUG("forward: %s", buffer);
         if (target_sockfd > 0)
         {
             send(target_sockfd, buffer, strlen(buffer), 0);
         }
         else
         {
-            printf("target not found!\n");
+            LOG_DEBUG("target not found!");
         }
     }
 
@@ -159,6 +182,7 @@ void *worker_thread(void *arg)
         {
             handle_UDP_online(task);
         }
+
         else if(task->type == UDP_refresh) 
         {
             handle_UDP_refresh(task);

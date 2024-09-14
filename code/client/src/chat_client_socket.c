@@ -21,14 +21,15 @@ char who[NAME_LEN];
 extern RECV_MAP_T g_recv_cmdTable[];
 char target_id[10];
 Client_g client_info;
+my_friend* frineds;
 
-void build_header(int type, char* target_id, char* buffer)
+void build_header(int type, char *target_id, char *buffer)
 {
     sprintf(buffer, "%d ", type);
-    sprintf(buffer+strlen(buffer), "%d ", HEADER_SIZE);
-    sprintf(buffer+strlen(buffer), "%s ", target_id);
-    sprintf(buffer+strlen(buffer), "%s ", client_info.client_id);
-    sprintf(buffer+strlen(buffer), "%s\n", client_info.online_id);
+    sprintf(buffer + strlen(buffer), "%d ", HEADER_SIZE);
+    sprintf(buffer + strlen(buffer), "%s ", target_id);
+    sprintf(buffer + strlen(buffer), "%s ", client_info.client_id);
+    sprintf(buffer + strlen(buffer), "%s\n", client_info.online_id);
 }
 
 void *receive_message(void *arg)
@@ -40,6 +41,7 @@ void *receive_message(void *arg)
         char *lines[10];
         int line_count = 0;
         memset(buffer, 0, sizeof(buffer));
+        cmd_code ret;
 
         int bytes_received = recv(sockfd, buffer, sizeof(buffer) - 1, 0);
         if (bytes_received > 0)
@@ -54,10 +56,22 @@ void *receive_message(void *arg)
             {
                 if (g_recv_cmdTable[i].cmd_code == header.type)
                 {
-                    g_recv_cmdTable[i].func(line_count, &header, buffer, lines);
+                    ret = g_recv_cmdTable[i].func(line_count, &header, buffer, lines);
                 }
             }
-        } else if(bytes_received <= 0)
+
+            if (ret == GET_FRIEND_LIST)
+            {
+                memset(buffer, 0, sizeof(buffer));
+                handle_get_friends(0, GET_FRIEND_LIST, buffer, lines);
+
+                if (send(sockfd, buffer, strlen(buffer), 0) < 0)
+                {
+                    show_msg("system", "send to server failed!");
+                }
+            }
+        }
+        else if (bytes_received <= 0)
         {
             mvwprintw(display_win, 1, 1, "Server disconnected or error occurred\n");
             wrefresh(display_win);
@@ -86,21 +100,21 @@ int chat_client_start(char *ip, int port)
     initscr();
     raw();
     keypad(stdscr, TRUE);
-    
-    //noecho();
+
+    // noecho();
 
     // 设置颜色
     start_color();
     init_pair(1, COLOR_BLUE, COLOR_BLACK);
     init_pair(2, COLOR_GREEN, COLOR_BLACK);
 
-    display_win = newwin(LINES-3, COLS, 0, 0);
+    display_win = newwin(LINES - 3, COLS, 0, 0);
     scrollok(display_win, TRUE);
-    //box(display_win, 0, 0);
+    // box(display_win, 0, 0);
     wrefresh(display_win);
 
-    input_win = newwin(3, COLS, LINES-3, 0);
-    //box(input_win, 0, 0);
+    input_win = newwin(3, COLS, LINES - 3, 0);
+    // box(input_win, 0, 0);
     wrefresh(input_win);
 
     printw("Connecting to server....\n");
@@ -141,15 +155,15 @@ int chat_client_start(char *ip, int port)
         mvwprintw(input_win, 1, 1, "To %s > ", who);
         attroff(COLOR_PAIR(1));
         wrefresh(input_win);
-        wgetnstr(input_win, message, sizeof(message) -1);
+        wgetnstr(input_win, message, sizeof(message) - 1);
 
         werase(input_win);
 
-        if(strlen(message) == 0)
+        if (strlen(message) == 0)
         {
             continue;
         }
-        //box(input_win, 0, 0);
+        // box(input_win, 0, 0);
 
         ret = cs_client_order_entry(message, sockfd);
         memset(message, '\0', strlen(message));

@@ -1,0 +1,109 @@
+[2024-09-13 04:38:50] DEBUG [src/chat_config.c:143]:     日志系统初始化成功
+[2024-09-13 04:38:50] DEBUG [src/chat_config.c:163]:     配置解析完毕
+[2024-09-13 04:38:50] INFO [src/chat_config.c:164]:     服务器ip: 192.168.217.128, port: 9000
+[2024-09-13 04:38:50] ERROR [src/chat_client_socket.c:138]:     建立连接失败, IP: 192.168.217.128, port: 9000
+[2024-09-13 04:39:07] DEBUG [src/chat_config.c:143]:     日志系统初始化成功
+[2024-09-13 04:39:07] DEBUG [src/chat_config.c:163]:     配置解析完毕
+[2024-09-13 04:39:07] INFO [src/chat_config.c:164]:     服务器ip: 192.168.217.128, port: 9001
+[2024-09-13 04:39:07] ERROR [src/chat_client_socket.c:138]:     建立连接失败, IP: 192.168.217.128, port: 9001
+[2024-09-13 04:39:34] DEBUG [src/chat_config.c:143]:     日志系统初始化成功
+[2024-09-13 04:39:34] DEBUG [src/chat_config.c:163]:     配置解析完毕
+[2024-09-13 04:39:34] INFO [src/chat_config.c:164]:     服务器ip: 192.168.217.128, port: 9000
+[2024-09-13 04:39:47] DEBUG [src/chat_client_cmd.c:317]:     send packet: 1 20 0 0 0
+userid: 084691941
+password: 001
+[2024-09-13 04:39:47] DEBUG [src/chat_client_cmd.c:222]:     5
+[2024-09-13 04:44:35] INFO [src/chat_client_scan.c:49]:     Recv broadcast message: DISCOVER_CLIENTS
+[2024-09-13 04:44:35] INFO [src/chat_client_scan.c:58]:     sendto success
+[2024-09-13 05:11:20] DEBUG [src/chat_config.c:143]:     日志系统初始化成功
+[2024-09-13 05:11:20] DEBUG [src/chat_config.c:163]:     配置解析完毕
+[2024-09-13 05:11:20] INFO [src/chat_config.c:164]:     服务器ip: 192.168.217.128, port: 9000
+[2024-09-13 05:11:37] DEBUG [src/chat_client_cmd.c:398]:     send packet: 2 20 0 0 0
+msg: singin 084691941 001
+[2024-09-13 05:12:53] DEBUG [src/chat_client_cmd.c:413]:     send packet: 1 20 0 0 0
+userid: 084691941
+password: 001
+[2024-09-13 05:12:53] DEBUG [src/chat_client_cmd.c:225]:     5
+[2024-09-13 05:14:38] DEBUG [src/chat_config.c:143]:     日志系统初始化成功
+[2024-09-13 05:14:38] DEBUG [src/chat_config.c:163]:     配置解析完毕
+[2024-09-13 05:14:38] INFO [src/chat_config.c:164]:     服务器ip: 192.168.217.128, port: 9000
+[2024-09-13 05:14:55] DEBUG [src/chat_client_cmd.c:413]:     send packet: 1 20 0 0 0
+userid: 084691941
+password: 001
+[2024-09-13 05:15:00] DEBUG [src/chat_client_cmd.c:225]:     5
+[2024-09-13 05:19:19] DEBUG [src/chat_config.c:143]:     日志系统初始化成功
+[2024-09-13 05:19:19] DEBUG [src/chat_config.c:163]:     配置解析完毕
+[2024-09-13 05:19:19] INFO [src/chat_config.c:164]:     服务器ip: 192.168.217.128, port: 9000
+[2024-09-13 05:19:30] DEBUG [src/chat_client_cmd.c:423]:     send packet: 1 20 0 0 0
+userid: 084691941
+password: 001
+[2024-09-13 05:19:30] DEBUG [src/chat_client_cmd.c:225]:     5
+[2024-09-13 05:21:26] INFO [src/chat_client_scan.c:49]:     Recv broadcast message: DISCOVER_CLIENTS
+[2024-09-13 05:21:26] INFO [src/chat_client_scan.c:58]:     sendto success
+[2024-09-13 05:26:32] INFO [src/chat_client_scan.c:49]:     Recv broadcast message: DISCOVER_CLIENTS
+[2024-09-13 05:26:32] INFO [src/chat_client_scan.c:58]:     sendto success
+[2024-09-13 05:29:01] DEBUG [src/chat_config.c:143]:     日志系统初始化成功
+[2024-09-13 05:29:01] DEBUG [src/chat_config.c:163]:     配置解析完毕
+[2024-09-13 05:29:01] INFO [src/chat_config.c:164]:     服务器ip: 192.168.217.128, port: 9000
+[2024-09-13 05:29:12] DEBUG [src/chat_client_cmd.c:437]:     send packet: 1 20 0 0 0
+userid: 084691941
+password: 001
+[2024-09-13 05:29:12] DEBUG [src/chat_client_cmd.c:239]:     5
+[2024-09-13 05:29:17] DEBUG [src/chat_client_cmd.c:422]:     send packet: 2 20 0 084691941 104408434
+msg: frineds
+[2024-09-13 05:31:45] DEBUG [src/chat_config.c:143]:     日志系统初始化成功
+[2024-09-13 05:31:45] DEBUG [src/chat_config.c:163]:     配置解析完毕
+[2024-09-13 05:31:45] INFO [src/chat_config.c:164]:     服务器ip: 192.168.217.128, port: 9000
+[2024-09-13 05:31:58] DEBUG [src/chat_client_cmd.c:437]:     send packet: 1 20 0 0 0
+userid: 084691941
+password: 001
+[2024-09-13 05:31:58] DEBUG [src/chat_client_cmd.c:239]:     5
+[2024-09-13 05:32:58] DEBUG [src/chat_config.c:143]:     日志系统初始化成功
+[2024-09-13 05:32:58] DEBUG [src/chat_config.c:163]:     配置解析完毕
+[2024-09-13 05:32:58] INFO [src/chat_config.c:164]:     服务器ip: 192.168.217.128, port: 9000
+[2024-09-13 05:33:11] DEBUG [src/chat_client_cmd.c:448]:     send packet: 1 20 0 0 0
+userid: 084691941
+password: 001
+[2024-09-13 05:33:11] DEBUG [src/chat_client_cmd.c:240]:     5
+[2024-09-13 05:33:49] DEBUG [src/chat_config.c:143]:     日志系统初始化成功
+[2024-09-13 05:33:49] DEBUG [src/chat_config.c:163]:     配置解析完毕
+[2024-09-13 05:33:49] INFO [src/chat_config.c:164]:     服务器ip: 192.168.217.128, port: 9000
+[2024-09-13 05:34:02] INFO [src/chat_client_scan.c:49]:     Recv broadcast message: DISCOVER_CLIENTS
+[2024-09-13 05:34:02] INFO [src/chat_client_scan.c:58]:     sendto success
+[2024-09-13 05:34:04] DEBUG [src/chat_client_cmd.c:448]:     send packet: 1 20 0 0 0
+userid: 084691941
+password: 001
+[2024-09-13 05:35:06] DEBUG [src/chat_config.c:143]:     日志系统初始化成功
+[2024-09-13 05:35:06] DEBUG [src/chat_config.c:163]:     配置解析完毕
+[2024-09-13 05:35:06] INFO [src/chat_config.c:164]:     服务器ip: 192.168.217.128, port: 9001
+[2024-09-13 05:35:21] DEBUG [src/chat_client_cmd.c:448]:     send packet: 1 20 0 0 0
+userid: 084691941
+password: 001
+[2024-09-13 05:35:24] DEBUG [src/chat_client_cmd.c:240]:     5
+[2024-09-13 05:36:31] DEBUG [src/chat_config.c:143]:     日志系统初始化成功
+[2024-09-13 05:36:31] DEBUG [src/chat_config.c:163]:     配置解析完毕
+[2024-09-13 05:36:31] INFO [src/chat_config.c:164]:     服务器ip: 192.168.217.128, port: 9001
+[2024-09-13 05:36:49] DEBUG [src/chat_client_cmd.c:448]:     send packet: 1 20 0 0 0
+userid: 084691941
+password: 001
+[2024-09-13 05:36:51] DEBUG [src/chat_client_cmd.c:240]:     5
+[2024-09-13 05:39:54] DEBUG [src/chat_config.c:143]:     日志系统初始化成功
+[2024-09-13 05:39:54] DEBUG [src/chat_config.c:163]:     配置解析完毕
+[2024-09-13 05:39:54] INFO [src/chat_config.c:164]:     服务器ip: 192.168.217.128, port: 9001
+[2024-09-13 05:40:01] INFO [src/chat_client_scan.c:49]:     Recv broadcast message: DISCOVER_CLIENTS
+[2024-09-13 05:40:01] INFO [src/chat_client_scan.c:58]:     sendto success
+[2024-09-13 05:40:18] DEBUG [src/chat_config.c:143]:     日志系统初始化成功
+[2024-09-13 05:40:18] DEBUG [src/chat_config.c:163]:     配置解析完毕
+[2024-09-13 05:40:18] INFO [src/chat_config.c:164]:     服务器ip: 192.168.217.128, port: 9001
+[2024-09-13 05:40:18] ERROR [src/chat_client_socket.c:139]:     建立连接失败, IP: 192.168.217.128, port: 9001
+[2024-09-13 05:40:20] DEBUG [src/chat_config.c:143]:     日志系统初始化成功
+[2024-09-13 05:40:20] DEBUG [src/chat_config.c:163]:     配置解析完毕
+[2024-09-13 05:40:20] INFO [src/chat_config.c:164]:     服务器ip: 192.168.217.128, port: 9001
+[2024-09-13 05:40:20] ERROR [src/chat_client_socket.c:139]:     建立连接失败, IP: 192.168.217.128, port: 9001
+[2024-09-13 05:40:29] DEBUG [src/chat_config.c:143]:     日志系统初始化成功
+[2024-09-13 05:40:29] DEBUG [src/chat_config.c:163]:     配置解析完毕
+[2024-09-13 05:40:29] INFO [src/chat_config.c:164]:     服务器ip: 192.168.217.128, port: 9000
+[2024-09-13 05:40:40] DEBUG [src/chat_client_cmd.c:448]:     send packet: 1 20 0 0 0
+userid: 084691941
+password: 001
+[2024-09-13 05:40:40] DEBUG [src/chat_client_cmd.c:240]:     5

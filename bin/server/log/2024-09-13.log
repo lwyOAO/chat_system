@@ -1,0 +1,492 @@
+[2024-09-13 04:26:34] DEBUG [src/chat_config.c:143]:     日志系统初始化成功
+[2024-09-13 04:26:34] DEBUG [src/chat_config.c:163]:     配置解析完毕
+[2024-09-13 04:26:34] INFO [src/chat_config.c:164]:     服务器ip: 0.0.0.0, port: 9001
+[2024-09-13 04:26:52] DEBUG [src/chat_config.c:143]:     日志系统初始化成功
+[2024-09-13 04:26:52] DEBUG [src/chat_config.c:163]:     配置解析完毕
+[2024-09-13 04:26:52] INFO [src/chat_config.c:164]:     服务器ip: 0.0.0.0, port: 9002
+[2024-09-13 04:26:52] INFO [src/chat_server_scan.c:59]:     Broadcast message sent
+[2024-09-13 04:26:57] DEBUG [src/chat_server_scan.c:76]:     time out
+[2024-09-13 04:26:57] DEBUG [src/chat_server_thread_pool.c:70]:     refresh online_user_list
+[2024-09-13 04:27:19] DEBUG [src/chat_server_socket.c:174]:     receive one message: 1 20 0 0 0
+userid: 084691941
+password: 001
+
+[2024-09-13 04:27:19] DEBUG [src/chat_server_thread_pool.c:82]:     Thread handling message from client 8: 1 20 0 0 0
+userid: 084691941
+password: 001
+
+[2024-09-13 04:27:19] DEBUG [src/chat_server_mysql.c:168]:     id: 084691941
+[2024-09-13 04:27:19] DEBUG [src/chat_server_mysql.c:172]:     name: bba
+[2024-09-13 04:27:19] DEBUG [src/chat_server_mysql.c:176]:     passwd: 001
+[2024-09-13 04:27:19] DEBUG [src/chat_server_mysql.c:180]:     find_user_by_id success
+[2024-09-13 04:27:19] DEBUG [src/chat_server_thread_pool.c:110]:     prepare send: 1 20 084691941 084691941 0
+code: 1
+online_id: 404641917
+user_id: 084691941
+[2024-09-13 04:27:19] DEBUG [src/chat_server_socket.c:174]:     receive one message: 5 20 0 084691941 404641917
+
+
+[2024-09-13 04:27:19] DEBUG [src/chat_server_thread_pool.c:82]:     Thread handling message from client 8: 5 20 0 084691941 404641917
+
+
+[2024-09-13 04:27:19] DEBUG [src/chat_server_cmd.c:165]:     ENTER handle_get_friend_list
+[2024-09-13 04:27:27] DEBUG [src/chat_server_mysql_friends.c:76]:     ENTER find_friends_by_id
+[2024-09-13 04:29:34] DEBUG [src/chat_server_mysql_friends.c:197]:     find_friends_by_id success
+[2024-09-13 04:29:37] DEBUG [src/chat_server_mysql_friends.c:205]:     leave find_friends_by_id
+[2024-09-13 04:30:10] DEBUG [src/chat_server_cmd.c:190]:     Leave handle_get_friend_list
+[2024-09-13 04:30:21] DEBUG [src/chat_server_thread_pool.c:110]:     prepare send: 5 20 084691941 084691941 404641917
+code: 1
+084691941 324750465 0 0 0 0
+
+[2024-09-13 04:30:22] DEBUG [src/chat_server_socket.c:174]:     receive one message: 5 20 0 084691941 404641917
+
+
+[2024-09-13 04:30:22] DEBUG [src/chat_server_thread_pool.c:82]:     Thread handling message from client 8: 5 20 0 084691941 404641917
+
+
+[2024-09-13 04:30:22] DEBUG [src/chat_server_cmd.c:165]:     ENTER handle_get_friend_list
+[2024-09-13 04:31:57] INFO [src/chat_server_scan.c:59]:     Broadcast message sent
+[2024-09-13 04:34:03] DEBUG [src/chat_config.c:143]:     日志系统初始化成功
+[2024-09-13 04:34:03] DEBUG [src/chat_config.c:163]:     配置解析完毕
+[2024-09-13 04:34:03] INFO [src/chat_config.c:164]:     服务器ip: 0.0.0.0, port: 9002
+[2024-09-13 04:34:03] INFO [src/chat_server_scan.c:59]:     Broadcast message sent
+[2024-09-13 04:34:08] DEBUG [src/chat_server_scan.c:76]:     time out
+[2024-09-13 04:34:08] DEBUG [src/chat_server_thread_pool.c:70]:     refresh online_user_list
+[2024-09-13 04:35:15] DEBUG [src/chat_server_socket.c:174]:     receive one message: 1 20 0 0 0
+userid: 084691941
+password: 001
+
+[2024-09-13 04:35:15] DEBUG [src/chat_server_thread_pool.c:82]:     Thread handling message from client 8: 1 20 0 0 0
+userid: 084691941
+password: 001
+
+[2024-09-13 04:35:15] DEBUG [src/chat_server_mysql.c:168]:     id: 084691941
+[2024-09-13 04:35:15] DEBUG [src/chat_server_mysql.c:172]:     name: bba
+[2024-09-13 04:35:15] DEBUG [src/chat_server_mysql.c:176]:     passwd: 001
+[2024-09-13 04:35:15] DEBUG [src/chat_server_mysql.c:180]:     find_user_by_id success
+[2024-09-13 04:35:15] DEBUG [src/chat_server_thread_pool.c:110]:     prepare send: 1 20 084691941 084691941 0
+code: 1
+online_id: 015374909
+user_id: 084691941
+[2024-09-13 04:35:15] DEBUG [src/chat_server_socket.c:174]:     receive one message: 5 20 0 084691941 015374909
+
+
+[2024-09-13 04:35:15] DEBUG [src/chat_server_thread_pool.c:82]:     Thread handling message from client 8: 5 20 0 084691941 015374909
+
+
+[2024-09-13 04:35:15] DEBUG [src/chat_server_cmd.c:165]:     ENTER handle_get_friend_list
+[2024-09-13 04:35:15] DEBUG [src/chat_server_mysql_friends.c:76]:     ENTER find_friends_by_id
+[2024-09-13 04:35:15] DEBUG [src/chat_server_mysql_friends.c:197]:     find_friends_by_id success
+[2024-09-13 04:35:15] DEBUG [src/chat_server_mysql_friends.c:205]:     leave find_friends_by_id
+[2024-09-13 04:35:15] DEBUG [src/chat_server_cmd.c:190]:     Leave handle_get_friend_list
+[2024-09-13 04:35:15] DEBUG [src/chat_server_thread_pool.c:110]:     prepare send: 5 20 084691941 084691941 015374909
+code: 1
+084691941 324750465 0 0 0 0
+
+[2024-09-13 04:39:08] INFO [src/chat_server_scan.c:59]:     Broadcast message sent
+[2024-09-13 04:39:30] DEBUG [src/chat_config.c:143]:     日志系统初始化成功
+[2024-09-13 04:39:30] DEBUG [src/chat_config.c:163]:     配置解析完毕
+[2024-09-13 04:39:30] INFO [src/chat_config.c:164]:     服务器ip: 0.0.0.0, port: 9000
+[2024-09-13 04:39:30] INFO [src/chat_server_scan.c:59]:     Broadcast message sent
+[2024-09-13 04:39:35] DEBUG [src/chat_server_scan.c:76]:     time out
+[2024-09-13 04:39:35] DEBUG [src/chat_server_thread_pool.c:70]:     refresh online_user_list
+[2024-09-13 04:39:47] DEBUG [src/chat_server_socket.c:174]:     receive one message: 1 20 0 0 0
+userid: 084691941
+password: 001
+
+[2024-09-13 04:39:47] DEBUG [src/chat_server_thread_pool.c:82]:     Thread handling message from client 8: 1 20 0 0 0
+userid: 084691941
+password: 001
+
+[2024-09-13 04:39:47] DEBUG [src/chat_server_mysql.c:168]:     id: 084691941
+[2024-09-13 04:39:47] DEBUG [src/chat_server_mysql.c:172]:     name: bba
+[2024-09-13 04:39:47] DEBUG [src/chat_server_mysql.c:176]:     passwd: 001
+[2024-09-13 04:39:47] DEBUG [src/chat_server_mysql.c:180]:     find_user_by_id success
+[2024-09-13 04:39:47] DEBUG [src/chat_server_thread_pool.c:110]:     prepare send: 1 20 084691941 084691941 0
+code: 1
+online_id: 217089732
+user_id: 084691941
+[2024-09-13 04:39:47] DEBUG [src/chat_server_socket.c:174]:     receive one message: 5 20 0 084691941 217089732
+
+
+[2024-09-13 04:39:47] DEBUG [src/chat_server_thread_pool.c:82]:     Thread handling message from client 8: 5 20 0 084691941 217089732
+
+
+[2024-09-13 04:39:47] DEBUG [src/chat_server_cmd.c:165]:     ENTER handle_get_friend_list
+[2024-09-13 04:39:47] DEBUG [src/chat_server_mysql_friends.c:76]:     ENTER find_friends_by_id
+[2024-09-13 04:39:47] DEBUG [src/chat_server_mysql_friends.c:197]:     find_friends_by_id success
+[2024-09-13 04:39:47] DEBUG [src/chat_server_mysql_friends.c:205]:     leave find_friends_by_id
+[2024-09-13 04:39:47] DEBUG [src/chat_server_cmd.c:190]:     Leave handle_get_friend_list
+[2024-09-13 04:39:47] DEBUG [src/chat_server_thread_pool.c:110]:     prepare send: 5 20 084691941 084691941 217089732
+code: 1
+084691941 324750465 0 0 0 0
+
+[2024-09-13 04:44:35] INFO [src/chat_server_scan.c:59]:     Broadcast message sent
+[2024-09-13 04:44:35] DEBUG [src/chat_server_scan.c:91]:     Rrceive response from client 192.168.217.128: 084691941
+[2024-09-13 04:44:40] DEBUG [src/chat_server_scan.c:76]:     time out
+[2024-09-13 05:11:16] DEBUG [src/chat_config.c:143]:     日志系统初始化成功
+[2024-09-13 05:11:16] DEBUG [src/chat_config.c:163]:     配置解析完毕
+[2024-09-13 05:11:16] INFO [src/chat_config.c:164]:     服务器ip: 0.0.0.0, port: 9000
+[2024-09-13 05:11:16] INFO [src/chat_server_scan.c:59]:     Broadcast message sent
+[2024-09-13 05:11:21] DEBUG [src/chat_server_scan.c:76]:     time out
+[2024-09-13 05:11:21] DEBUG [src/chat_server_thread_pool.c:70]:     refresh online_user_list
+[2024-09-13 05:11:37] DEBUG [src/chat_server_socket.c:174]:     receive one message: 2 20 0 0 0
+msg: singin 084691941 001
+
+[2024-09-13 05:11:37] DEBUG [src/chat_server_thread_pool.c:82]:     Thread handling message from client 8: 2 20 0 0 0
+msg: singin 084691941 001
+
+[2024-09-13 05:11:37] DEBUG [src/chat_server_thread_pool.c:110]:     prepare send: 4 20 0 0 0
+error: you have not sign in
+
+[2024-09-13 05:12:53] DEBUG [src/chat_server_socket.c:174]:     receive one message: 1 20 0 0 0
+userid: 084691941
+password: 001
+
+[2024-09-13 05:12:53] DEBUG [src/chat_server_thread_pool.c:82]:     Thread handling message from client 8: 1 20 0 0 0
+userid: 084691941
+password: 001
+
+[2024-09-13 05:12:53] DEBUG [src/chat_server_mysql.c:168]:     id: 084691941
+[2024-09-13 05:12:53] DEBUG [src/chat_server_mysql.c:172]:     name: bba
+[2024-09-13 05:12:53] DEBUG [src/chat_server_mysql.c:176]:     passwd: 001
+[2024-09-13 05:12:53] DEBUG [src/chat_server_mysql.c:180]:     find_user_by_id success
+[2024-09-13 05:12:53] DEBUG [src/chat_server_thread_pool.c:110]:     prepare send: 1 20 084691941 084691941 0
+code: 1
+online_id: 433384949
+user_id: 084691941
+[2024-09-13 05:12:53] DEBUG [src/chat_server_socket.c:174]:     receive one message: 5 20 0 084691941 433384949
+
+
+[2024-09-13 05:12:53] DEBUG [src/chat_server_thread_pool.c:82]:     Thread handling message from client 8: 5 20 0 084691941 433384949
+
+
+[2024-09-13 05:12:53] DEBUG [src/chat_server_cmd.c:165]:     ENTER handle_get_friend_list
+[2024-09-13 05:12:53] DEBUG [src/chat_server_mysql_friends.c:76]:     ENTER find_friends_by_id
+[2024-09-13 05:12:53] DEBUG [src/chat_server_mysql_friends.c:197]:     find_friends_by_id success
+[2024-09-13 05:12:53] DEBUG [src/chat_server_mysql_friends.c:205]:     leave find_friends_by_id
+[2024-09-13 05:12:53] DEBUG [src/chat_server_cmd.c:190]:     Leave handle_get_friend_list
+[2024-09-13 05:12:53] DEBUG [src/chat_server_thread_pool.c:110]:     prepare send: 5 20 084691941 084691941 433384949
+code: 1
+084691941 324750465 0 0 0 0
+
+[2024-09-13 05:14:55] DEBUG [src/chat_server_socket.c:174]:     receive one message: 1 20 0 0 0
+userid: 084691941
+password: 001
+
+[2024-09-13 05:14:55] DEBUG [src/chat_server_thread_pool.c:82]:     Thread handling message from client 8: 1 20 0 0 0
+userid: 084691941
+password: 001
+
+[2024-09-13 05:14:55] DEBUG [src/chat_server_mysql.c:168]:     id: 084691941
+[2024-09-13 05:14:55] DEBUG [src/chat_server_mysql.c:172]:     name: bba
+[2024-09-13 05:14:55] DEBUG [src/chat_server_mysql.c:176]:     passwd: 001
+[2024-09-13 05:14:55] DEBUG [src/chat_server_mysql.c:180]:     find_user_by_id success
+[2024-09-13 05:14:55] DEBUG [src/chat_server_thread_pool.c:110]:     prepare send: 1 20 084691941 084691941 0
+code: 1
+online_id: 868346634
+user_id: 084691941
+[2024-09-13 05:14:55] DEBUG [src/chat_server_socket.c:174]:     receive one message: 5 20 0 084691941 868346634
+
+
+[2024-09-13 05:14:55] DEBUG [src/chat_server_thread_pool.c:82]:     Thread handling message from client 8: 5 20 0 084691941 868346634
+
+
+[2024-09-13 05:14:55] DEBUG [src/chat_server_cmd.c:165]:     ENTER handle_get_friend_list
+[2024-09-13 05:14:55] DEBUG [src/chat_server_mysql_friends.c:76]:     ENTER find_friends_by_id
+[2024-09-13 05:14:55] DEBUG [src/chat_server_mysql_friends.c:197]:     find_friends_by_id success
+[2024-09-13 05:14:55] DEBUG [src/chat_server_mysql_friends.c:205]:     leave find_friends_by_id
+[2024-09-13 05:14:55] DEBUG [src/chat_server_cmd.c:190]:     Leave handle_get_friend_list
+[2024-09-13 05:14:55] DEBUG [src/chat_server_thread_pool.c:110]:     prepare send: 5 20 084691941 084691941 868346634
+code: 1
+084691941 324750465 0 0 0 0
+
+[2024-09-13 05:16:21] INFO [src/chat_server_scan.c:59]:     Broadcast message sent
+[2024-09-13 05:16:26] DEBUG [src/chat_server_scan.c:76]:     time out
+[2024-09-13 05:16:26] DEBUG [src/chat_server_thread_pool.c:70]:     refresh online_user_list
+[2024-09-13 05:19:30] DEBUG [src/chat_server_socket.c:174]:     receive one message: 1 20 0 0 0
+userid: 084691941
+password: 001
+
+[2024-09-13 05:19:30] DEBUG [src/chat_server_thread_pool.c:82]:     Thread handling message from client 8: 1 20 0 0 0
+userid: 084691941
+password: 001
+
+[2024-09-13 05:19:30] DEBUG [src/chat_server_mysql.c:168]:     id: 084691941
+[2024-09-13 05:19:30] DEBUG [src/chat_server_mysql.c:172]:     name: bba
+[2024-09-13 05:19:30] DEBUG [src/chat_server_mysql.c:176]:     passwd: 001
+[2024-09-13 05:19:30] DEBUG [src/chat_server_mysql.c:180]:     find_user_by_id success
+[2024-09-13 05:19:30] DEBUG [src/chat_server_thread_pool.c:110]:     prepare send: 1 20 084691941 084691941 0
+code: 1
+online_id: 902128353
+user_id: 084691941
+[2024-09-13 05:19:30] DEBUG [src/chat_server_socket.c:174]:     receive one message: 5 20 0 084691941 902128353
+
+
+[2024-09-13 05:19:30] DEBUG [src/chat_server_thread_pool.c:82]:     Thread handling message from client 8: 5 20 0 084691941 902128353
+
+
+[2024-09-13 05:19:30] DEBUG [src/chat_server_cmd.c:165]:     ENTER handle_get_friend_list
+[2024-09-13 05:19:30] DEBUG [src/chat_server_mysql_friends.c:76]:     ENTER find_friends_by_id
+[2024-09-13 05:19:30] DEBUG [src/chat_server_mysql_friends.c:197]:     find_friends_by_id success
+[2024-09-13 05:19:30] DEBUG [src/chat_server_mysql_friends.c:205]:     leave find_friends_by_id
+[2024-09-13 05:19:30] DEBUG [src/chat_server_cmd.c:190]:     Leave handle_get_friend_list
+[2024-09-13 05:19:30] DEBUG [src/chat_server_thread_pool.c:110]:     prepare send: 5 20 084691941 084691941 902128353
+code: 1
+084691941 324750465 0 0 0 0
+
+[2024-09-13 05:21:26] INFO [src/chat_server_scan.c:59]:     Broadcast message sent
+[2024-09-13 05:21:26] DEBUG [src/chat_server_scan.c:91]:     Rrceive response from client 192.168.217.128: 084691941
+[2024-09-13 05:21:32] DEBUG [src/chat_server_scan.c:76]:     time out
+[2024-09-13 05:21:32] DEBUG [src/chat_server_thread_pool.c:70]:     refresh online_user_list
+[2024-09-13 05:26:32] INFO [src/chat_server_scan.c:59]:     Broadcast message sent
+[2024-09-13 05:26:32] DEBUG [src/chat_server_scan.c:91]:     Rrceive response from client 192.168.217.128: 084691941
+[2024-09-13 05:26:37] DEBUG [src/chat_server_scan.c:76]:     time out
+[2024-09-13 05:28:57] DEBUG [src/chat_config.c:143]:     日志系统初始化成功
+[2024-09-13 05:28:57] DEBUG [src/chat_config.c:163]:     配置解析完毕
+[2024-09-13 05:28:57] INFO [src/chat_config.c:164]:     服务器ip: 0.0.0.0, port: 9000
+[2024-09-13 05:28:57] INFO [src/chat_server_scan.c:59]:     Broadcast message sent
+[2024-09-13 05:29:02] DEBUG [src/chat_server_scan.c:76]:     time out
+[2024-09-13 05:29:02] DEBUG [src/chat_server_thread_pool.c:70]:     refresh online_user_list
+[2024-09-13 05:29:12] DEBUG [src/chat_server_socket.c:174]:     receive one message: 1 20 0 0 0
+userid: 084691941
+password: 001
+
+[2024-09-13 05:29:12] DEBUG [src/chat_server_thread_pool.c:82]:     Thread handling message from client 8: 1 20 0 0 0
+userid: 084691941
+password: 001
+
+[2024-09-13 05:29:12] DEBUG [src/chat_server_mysql.c:168]:     id: 084691941
+[2024-09-13 05:29:12] DEBUG [src/chat_server_mysql.c:172]:     name: bba
+[2024-09-13 05:29:12] DEBUG [src/chat_server_mysql.c:176]:     passwd: 001
+[2024-09-13 05:29:12] DEBUG [src/chat_server_mysql.c:180]:     find_user_by_id success
+[2024-09-13 05:29:12] DEBUG [src/chat_server_thread_pool.c:110]:     prepare send: 1 20 084691941 084691941 0
+code: 1
+online_id: 104408434
+user_id: 084691941
+[2024-09-13 05:29:12] DEBUG [src/chat_server_socket.c:174]:     receive one message: 5 20 0 084691941 104408434
+
+
+[2024-09-13 05:29:12] DEBUG [src/chat_server_thread_pool.c:82]:     Thread handling message from client 8: 5 20 0 084691941 104408434
+
+
+[2024-09-13 05:29:12] DEBUG [src/chat_server_cmd.c:165]:     ENTER handle_get_friend_list
+[2024-09-13 05:29:12] DEBUG [src/chat_server_mysql_friends.c:76]:     ENTER find_friends_by_id
+[2024-09-13 05:29:12] DEBUG [src/chat_server_mysql_friends.c:197]:     find_friends_by_id success
+[2024-09-13 05:29:12] DEBUG [src/chat_server_mysql_friends.c:205]:     leave find_friends_by_id
+[2024-09-13 05:29:12] DEBUG [src/chat_server_cmd.c:190]:     Leave handle_get_friend_list
+[2024-09-13 05:29:12] DEBUG [src/chat_server_thread_pool.c:110]:     prepare send: 5 20 084691941 084691941 104408434
+code: 1
+084691941 324750465 0 0 0 0
+
+[2024-09-13 05:29:17] DEBUG [src/chat_server_socket.c:174]:     receive one message: 2 20 0 084691941 104408434
+msg: frineds
+
+[2024-09-13 05:29:17] DEBUG [src/chat_server_thread_pool.c:82]:     Thread handling message from client 8: 2 20 0 084691941 104408434
+msg: frineds
+
+[2024-09-13 05:29:17] DEBUG [src/chat_server_thread_pool.c:117]:     forward: 2 20 0 084691941 0
+msg: frineds
+
+[2024-09-13 05:29:17] DEBUG [src/chat_server_thread_pool.c:124]:     target not found!
+[2024-09-13 05:31:58] DEBUG [src/chat_server_socket.c:174]:     receive one message: 1 20 0 0 0
+userid: 084691941
+password: 001
+
+[2024-09-13 05:31:58] DEBUG [src/chat_server_thread_pool.c:82]:     Thread handling message from client 8: 1 20 0 0 0
+userid: 084691941
+password: 001
+
+[2024-09-13 05:31:58] DEBUG [src/chat_server_mysql.c:168]:     id: 084691941
+[2024-09-13 05:31:58] DEBUG [src/chat_server_mysql.c:172]:     name: bba
+[2024-09-13 05:31:58] DEBUG [src/chat_server_mysql.c:176]:     passwd: 001
+[2024-09-13 05:31:58] DEBUG [src/chat_server_mysql.c:180]:     find_user_by_id success
+[2024-09-13 05:31:58] DEBUG [src/chat_server_thread_pool.c:110]:     prepare send: 1 20 084691941 084691941 0
+code: 1
+online_id: 764533827
+user_id: 084691941
+[2024-09-13 05:31:58] DEBUG [src/chat_server_socket.c:174]:     receive one message: 5 20 0 084691941 764533827
+
+
+[2024-09-13 05:31:58] DEBUG [src/chat_server_thread_pool.c:82]:     Thread handling message from client 8: 5 20 0 084691941 764533827
+
+
+[2024-09-13 05:31:58] DEBUG [src/chat_server_cmd.c:165]:     ENTER handle_get_friend_list
+[2024-09-13 05:31:58] DEBUG [src/chat_server_mysql_friends.c:76]:     ENTER find_friends_by_id
+[2024-09-13 05:31:58] DEBUG [src/chat_server_mysql_friends.c:197]:     find_friends_by_id success
+[2024-09-13 05:31:58] DEBUG [src/chat_server_mysql_friends.c:205]:     leave find_friends_by_id
+[2024-09-13 05:31:58] DEBUG [src/chat_server_cmd.c:190]:     Leave handle_get_friend_list
+[2024-09-13 05:31:58] DEBUG [src/chat_server_thread_pool.c:110]:     prepare send: 5 20 084691941 084691941 764533827
+code: 1
+084691941 324750465 0 0 0 0
+
+[2024-09-13 05:33:11] DEBUG [src/chat_server_socket.c:174]:     receive one message: 1 20 0 0 0
+userid: 084691941
+password: 001
+
+[2024-09-13 05:33:11] DEBUG [src/chat_server_thread_pool.c:82]:     Thread handling message from client 8: 1 20 0 0 0
+userid: 084691941
+password: 001
+
+[2024-09-13 05:33:11] DEBUG [src/chat_server_mysql.c:168]:     id: 084691941
+[2024-09-13 05:33:11] DEBUG [src/chat_server_mysql.c:172]:     name: bba
+[2024-09-13 05:33:11] DEBUG [src/chat_server_mysql.c:176]:     passwd: 001
+[2024-09-13 05:33:11] DEBUG [src/chat_server_mysql.c:180]:     find_user_by_id success
+[2024-09-13 05:33:11] DEBUG [src/chat_server_thread_pool.c:110]:     prepare send: 1 20 084691941 084691941 0
+code: 1
+online_id: 877537991
+user_id: 084691941
+[2024-09-13 05:33:11] DEBUG [src/chat_server_socket.c:174]:     receive one message: 5 20 0 084691941 877537991
+
+
+[2024-09-13 05:33:11] DEBUG [src/chat_server_thread_pool.c:82]:     Thread handling message from client 8: 5 20 0 084691941 877537991
+
+
+[2024-09-13 05:33:11] DEBUG [src/chat_server_cmd.c:165]:     ENTER handle_get_friend_list
+[2024-09-13 05:33:11] DEBUG [src/chat_server_mysql_friends.c:76]:     ENTER find_friends_by_id
+[2024-09-13 05:33:11] DEBUG [src/chat_server_mysql_friends.c:197]:     find_friends_by_id success
+[2024-09-13 05:33:11] DEBUG [src/chat_server_mysql_friends.c:205]:     leave find_friends_by_id
+[2024-09-13 05:33:11] DEBUG [src/chat_server_cmd.c:190]:     Leave handle_get_friend_list
+[2024-09-13 05:33:11] DEBUG [src/chat_server_thread_pool.c:110]:     prepare send: 5 20 084691941 084691941 877537991
+code: 1
+084691941 324750465 0 0 0 0
+
+[2024-09-13 05:34:02] INFO [src/chat_server_scan.c:59]:     Broadcast message sent
+[2024-09-13 05:34:02] DEBUG [src/chat_server_scan.c:91]:     Rrceive response from client 192.168.217.128: 0
+[2024-09-13 05:34:04] DEBUG [src/chat_server_socket.c:174]:     receive one message: 1 20 0 0 0
+userid: 084691941
+password: 001
+
+[2024-09-13 05:34:04] DEBUG [src/chat_server_thread_pool.c:82]:     Thread handling message from client 8: 1 20 0 0 0
+userid: 084691941
+password: 001
+
+[2024-09-13 05:34:04] DEBUG [src/chat_server_mysql.c:168]:     id: 084691941
+[2024-09-13 05:34:04] DEBUG [src/chat_server_mysql.c:172]:     name: bba
+[2024-09-13 05:34:04] DEBUG [src/chat_server_mysql.c:176]:     passwd: 001
+[2024-09-13 05:34:04] DEBUG [src/chat_server_mysql.c:180]:     find_user_by_id success
+[2024-09-13 05:34:04] DEBUG [src/chat_server_thread_pool.c:110]:     prepare send: 1 20 084691941 084691941 0
+code: 1
+online_id: 701964413
+user_id: 084691941
+[2024-09-13 05:34:04] DEBUG [src/chat_server_socket.c:174]:     receive one message: 5 20 0 084691941 701964413
+
+
+[2024-09-13 05:34:04] DEBUG [src/chat_server_thread_pool.c:82]:     Thread handling message from client 8: 5 20 0 084691941 701964413
+
+
+[2024-09-13 05:34:04] DEBUG [src/chat_server_cmd.c:165]:     ENTER handle_get_friend_list
+[2024-09-13 05:34:04] DEBUG [src/chat_server_mysql_friends.c:76]:     ENTER find_friends_by_id
+[2024-09-13 05:34:04] DEBUG [src/chat_server_mysql_friends.c:197]:     find_friends_by_id success
+[2024-09-13 05:34:04] DEBUG [src/chat_server_mysql_friends.c:205]:     leave find_friends_by_id
+[2024-09-13 05:34:42] DEBUG [src/chat_config.c:143]:     日志系统初始化成功
+[2024-09-13 05:34:42] DEBUG [src/chat_config.c:163]:     配置解析完毕
+[2024-09-13 05:34:42] INFO [src/chat_config.c:164]:     服务器ip: 0.0.0.0, port: 9000
+[2024-09-13 05:34:56] DEBUG [src/chat_config.c:143]:     日志系统初始化成功
+[2024-09-13 05:34:56] DEBUG [src/chat_config.c:163]:     配置解析完毕
+[2024-09-13 05:34:56] INFO [src/chat_config.c:164]:     服务器ip: 0.0.0.0, port: 9001
+[2024-09-13 05:34:56] INFO [src/chat_server_scan.c:59]:     Broadcast message sent
+[2024-09-13 05:35:01] DEBUG [src/chat_server_scan.c:76]:     time out
+[2024-09-13 05:35:01] DEBUG [src/chat_server_thread_pool.c:70]:     refresh online_user_list
+[2024-09-13 05:35:21] DEBUG [src/chat_server_socket.c:174]:     receive one message: 1 20 0 0 0
+userid: 084691941
+password: 001
+
+[2024-09-13 05:35:21] DEBUG [src/chat_server_thread_pool.c:82]:     Thread handling message from client 8: 1 20 0 0 0
+userid: 084691941
+password: 001
+
+[2024-09-13 05:35:21] DEBUG [src/chat_server_mysql.c:168]:     id: 084691941
+[2024-09-13 05:35:21] DEBUG [src/chat_server_mysql.c:172]:     name: bba
+[2024-09-13 05:35:21] DEBUG [src/chat_server_mysql.c:176]:     passwd: 001
+[2024-09-13 05:35:21] DEBUG [src/chat_server_mysql.c:180]:     find_user_by_id success
+[2024-09-13 05:35:21] DEBUG [src/chat_server_thread_pool.c:110]:     prepare send: 1 20 084691941 084691941 0
+code: 1
+online_id: 863550953
+user_id: 084691941
+[2024-09-13 05:35:21] DEBUG [src/chat_server_socket.c:174]:     receive one message: 5 20 0 084691941 863550953
+
+
+[2024-09-13 05:35:21] DEBUG [src/chat_server_thread_pool.c:82]:     Thread handling message from client 8: 5 20 0 084691941 863550953
+
+
+[2024-09-13 05:35:21] DEBUG [src/chat_server_cmd.c:165]:     ENTER handle_get_friend_list
+[2024-09-13 05:35:21] DEBUG [src/chat_server_mysql_friends.c:76]:     ENTER find_friends_by_id
+[2024-09-13 05:35:21] DEBUG [src/chat_server_mysql_friends.c:197]:     find_friends_by_id success
+[2024-09-13 05:35:21] DEBUG [src/chat_server_mysql_friends.c:205]:     leave find_friends_by_id
+[2024-09-13 05:35:21] DEBUG [src/chat_server_cmd.c:190]:     Leave handle_get_friend_list
+[2024-09-13 05:35:21] DEBUG [src/chat_server_thread_pool.c:110]:     prepare send: 5 20 084691941 084691941 863550953
+code: 1
+084691941 324750465 0 0 0 0
+
+[2024-09-13 05:36:49] DEBUG [src/chat_server_socket.c:174]:     receive one message: 1 20 0 0 0
+userid: 084691941
+password: 001
+
+[2024-09-13 05:36:49] DEBUG [src/chat_server_thread_pool.c:82]:     Thread handling message from client 8: 1 20 0 0 0
+userid: 084691941
+password: 001
+
+[2024-09-13 05:36:49] DEBUG [src/chat_server_mysql.c:168]:     id: 084691941
+[2024-09-13 05:36:49] DEBUG [src/chat_server_mysql.c:172]:     name: bba
+[2024-09-13 05:36:49] DEBUG [src/chat_server_mysql.c:176]:     passwd: 001
+[2024-09-13 05:36:49] DEBUG [src/chat_server_mysql.c:180]:     find_user_by_id success
+[2024-09-13 05:36:49] DEBUG [src/chat_server_thread_pool.c:110]:     prepare send: 1 20 084691941 084691941 0
+code: 1
+online_id: 396053393
+user_id: 084691941
+[2024-09-13 05:36:49] DEBUG [src/chat_server_socket.c:174]:     receive one message: 5 20 0 084691941 396053393
+
+
+[2024-09-13 05:36:49] DEBUG [src/chat_server_thread_pool.c:82]:     Thread handling message from client 8: 5 20 0 084691941 396053393
+
+
+[2024-09-13 05:36:49] DEBUG [src/chat_server_cmd.c:165]:     ENTER handle_get_friend_list
+[2024-09-13 05:36:49] DEBUG [src/chat_server_mysql_friends.c:76]:     ENTER find_friends_by_id
+[2024-09-13 05:36:49] DEBUG [src/chat_server_mysql_friends.c:197]:     find_friends_by_id success
+[2024-09-13 05:36:49] DEBUG [src/chat_server_mysql_friends.c:205]:     leave find_friends_by_id
+[2024-09-13 05:36:49] DEBUG [src/chat_server_cmd.c:190]:     Leave handle_get_friend_list
+[2024-09-13 05:36:49] DEBUG [src/chat_server_thread_pool.c:110]:     prepare send: 5 20 084691941 084691941 396053393
+code: 1
+084691941 324750465 0 0 0 0
+
+[2024-09-13 05:40:01] INFO [src/chat_server_scan.c:59]:     Broadcast message sent
+[2024-09-13 05:40:01] DEBUG [src/chat_server_scan.c:91]:     Rrceive response from client 192.168.217.128: 0
+[2024-09-13 05:40:06] DEBUG [src/chat_server_scan.c:76]:     time out
+[2024-09-13 05:40:13] DEBUG [src/chat_config.c:143]:     日志系统初始化成功
+[2024-09-13 05:40:13] DEBUG [src/chat_config.c:163]:     配置解析完毕
+[2024-09-13 05:40:13] INFO [src/chat_config.c:164]:     服务器ip: 0.0.0.0, port: 9000
+[2024-09-13 05:40:13] INFO [src/chat_server_scan.c:59]:     Broadcast message sent
+[2024-09-13 05:40:18] DEBUG [src/chat_server_scan.c:76]:     time out
+[2024-09-13 05:40:18] DEBUG [src/chat_server_thread_pool.c:70]:     refresh online_user_list
+[2024-09-13 05:40:40] DEBUG [src/chat_server_socket.c:174]:     receive one message: 1 20 0 0 0
+userid: 084691941
+password: 001
+
+[2024-09-13 05:40:40] DEBUG [src/chat_server_thread_pool.c:82]:     Thread handling message from client 8: 1 20 0 0 0
+userid: 084691941
+password: 001
+
+[2024-09-13 05:40:40] DEBUG [src/chat_server_mysql.c:168]:     id: 084691941
+[2024-09-13 05:40:40] DEBUG [src/chat_server_mysql.c:172]:     name: bba
+[2024-09-13 05:40:40] DEBUG [src/chat_server_mysql.c:176]:     passwd: 001
+[2024-09-13 05:40:40] DEBUG [src/chat_server_mysql.c:180]:     find_user_by_id success
+[2024-09-13 05:40:40] DEBUG [src/chat_server_thread_pool.c:110]:     prepare send: 1 20 084691941 084691941 0
+code: 1
+online_id: 625307293
+user_id: 084691941
+[2024-09-13 05:40:40] DEBUG [src/chat_server_socket.c:174]:     receive one message: 5 20 0 084691941 625307293
+
+
+[2024-09-13 05:40:40] DEBUG [src/chat_server_thread_pool.c:82]:     Thread handling message from client 8: 5 20 0 084691941 625307293
+
+
+[2024-09-13 05:40:40] DEBUG [src/chat_server_cmd.c:165]:     ENTER handle_get_friend_list
+[2024-09-13 05:40:40] DEBUG [src/chat_server_mysql_friends.c:76]:     ENTER find_friends_by_id
+[2024-09-13 05:40:40] DEBUG [src/chat_server_mysql_friends.c:197]:     find_friends_by_id success
+[2024-09-13 05:40:40] DEBUG [src/chat_server_mysql_friends.c:205]:     leave find_friends_by_id
+[2024-09-13 05:40:40] DEBUG [src/chat_server_cmd.c:190]:     Leave handle_get_friend_list
+[2024-09-13 05:40:40] DEBUG [src/chat_server_thread_pool.c:110]:     prepare send: 5 20 084691941 084691941 625307293
+code: 1
+084691941 324750465 0 0 0 0
+
